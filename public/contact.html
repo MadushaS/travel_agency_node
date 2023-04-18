@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact - Nayana Travel Agency</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Nayana Travel Agency</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link" href="/flights">Flights</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/hotels">Hotels</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/shuttles">Shuttles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/weather">Weather</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/messaging">Messaging</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section mb-5"
+    style="height:60vh;background-repeat: no-repeat;background-size: cover;background-position-y: center;background-image:url(https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1080&q=80)">
+    <div class="container">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="hero-content text-center">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+              <div class="card-header">
+                <h2 class="text-center font-weight-light my-4">Get in Touch</h2>
+                <p>We are here to help you. Please fill out the form below and we will get back to you as soon as
+                  possible.
+                </p>
+              </div>
+              <div class="card-body">
+                <form id="contact-form">
+                  <div class="form-floating mb-3"><input type="text" class="form-control" id="name" placeholder="Name"
+                      required=""><label for="name">Name</label></div>
+                  <div class="form-floating mb-3"><input type="email" class="form-control" id="email"
+                      placeholder="Email" required=""><label for="email">Email</label></div>
+                  <div class="form-floating mb-3"><textarea class="form-control" id="message" rows="5"
+                      placeholder="Message" required=""></textarea><label for="message">Message</label></div>
+                  <div class="d-flex justify-content-center mt-4 mb-3"><button type="submit"
+                      class="btn btn-primary mx-auto">Submit</button></div>
+                </form>
+                <div id="message-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="map-section container"><iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2518.979081275346!2d-0.11883828400553997!3d51.50136452519722!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c9a46f38a1%3A0x39cb93fdeb0e6f0!2sBuckingham+Palace!5e0!3m2!1sen!2sus!4v1528255062815"
+      width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe></section>
+  <footer class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-muted mb-0">Flight Reservation System &copy; 2023</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text-muted mb-0 text-right">Designed by Your Name</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+  <script>const form = document.getElementById('contact-form');
+    const messageContainer = document.getElementById('message-container');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      try {
+        const response = await axios.post('/api/contact', { name, email, message });
+        messageContainer.innerHTML = '<div class="alert alert-success">Your message has been sent successfully.</div>';
+      } catch (error) {
+        messageContainer.innerHTML = '<div class="alert alert-danger">An error occurred while sending your message. Please try again later.</div>';
+      }
+    });</script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messeging - Nayana Travel Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
+        referrerpolicy="no-referrer" />
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        #chat_container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+            height: 50vh;
+            overflow-y: scroll;
+        }
+
+        .chat-bubble {
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .chat-bubble .chat-message {
+            background-color: #f1f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .chat-bubble.user .chat-message {
+            background-color: #b0e0e6;
+            margin-left: auto;
+        }
+
+        .chat-bubble.bot .chat-message {
+            background-color: #d5d5d5;
+        }
+
+        form {
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        textarea {
+            flex: 1;
+            margin-right: 0.5rem;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 12px;
+            resize: none;
+            outline: none;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            border: none;
+            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button[type="submit"] img {
+            width: 1.5rem;
+            height: 1.5rem;
+            filter: invert(100%) grayscale(1);
+        }
+        .prompt-suggestions {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .prompt-suggestions:hover {
+            background-color: #f8f9fa;
+            transform: scale(1.01);
+            transform: translate(0, 0.1rem);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark text-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <h1>Nayana AI Assistant</h1>
+                </div>
+                <div class="col-md-8">
+                    <div class="row justify-content-end">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card bg-dark">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Suggestions</h5>
+                                            <div class="row">
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="bg-secondary card rounded-3 text-white prompt-suggestions">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">Plan me a 3 day trip to Nuwara Eliya
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-2">
+                                                    <div class="bg-secondary card rounded-3 text-white prompt-suggestions">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title">What are the best locations to visit
+                                                                in Sri Lanka?</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <div id="chat_container">
+            <div class="chat-bubble bot">
+                <div class="chat-message">
+                    Hello! How can I help you today?
+                </div>
+            </div>
+        </div>
+
+        <form id="chat_form">
+            <textarea id="chat_input" placeholder="Type your message here..." required></textarea>
+            <button type="submit">
+                <img src="https://cdn-icons-png.flaticon.com/512/3682/3682321.png" alt="Send" />
+            </button>
+        </form>
+
+    </div>
+
+    <!-- boostrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // Get references to the HTML elements
+        const chatForm = document.getElementById("chat_form");
+        const chatInput = document.getElementById("chat_input");
+        const chatContainer = document.getElementById("chat_container");
+
+        // Function to add a user message to the chat container
+        function addUserMessage(message) {
+            const chatBubble = document.createElement("div");
+            chatBubble.classList.add("chat-bubble", "user");
+            chatBubble.innerHTML = `<div class="chat-message">${message}</div>`;
+            chatContainer.appendChild(chatBubble);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Function to add a bot message to the chat container
+        function addBotMessage() {
+            const chatBubble = document.createElement("div");
+            chatBubble.classList.add("chat-bubble", "bot");
+            const chatMsg = document.createElement("div");
+            chatMsg.innerHTML = "Please wait...";
+            chatMsg.classList.add("chat-message");
+            chatBubble.appendChild(chatMsg);
+            chatContainer.appendChild(chatBubble);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+
+            return(chatMsg);
+        }
+
+        chatForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            sendPrompt();
+        });
+
+        function prepareMessage(event) {
+            if (event.key === "Enter") {
+                //check if the shift key is pressed
+                if (event.shiftKey) {
+                    //add a new line to the message input
+                    chatInput.value += "\n";
+                    //adjust the height of the message input to fit the new line
+                    chatInput.style.height = `${chatInput.scrollHeight}px`;
+                } else {
+                    //send the message
+                    sendPrompt();
+                }
+            }
+        }
+
+        function sendPrompt() {
+            const message = chatInput.value.trim();
+            if (message) {
+                chatInput.disabled = true;
+                addUserMessage(message);
+                const msgBox = addBotMessage();
+                chatInput.value = "";
+                chatInput.style.height = "auto";
+                axios.post("/api/chat", {
+                    message: message
+                }).then(function (response) {
+                    msgBox.innerHTML = response.data.message.split("\n").map(e => `<p>${e}</p>`).join("");
+                }).catch(function (error) {
+                    console.log(error);
+                }).finally(function () {
+                    chatInput.disabled = false;
+                })
+            }
+        }
+
+        // Attach event listener to the form
+        chatInput.addEventListener("keydown", prepareMessage);
+
+        // Attach event listener to the suggestions
+        const suggestions = document.querySelectorAll(".prompt-suggestions");
+        suggestions.forEach(suggestion => {
+            suggestion.addEventListener("click", function (event) {
+                chatInput.value = this.querySelector('h5').innerText;
+                sendPrompt();
+            });
+        });
+
+    </script>
+</body>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shuttles - Nayana Travel Agency</title>
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+        integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjmzB7fsk_CtCz4lZdLhyt3j4R6kSZyWI&libraries=places"></script>
+    <!-- Custom CSS -->
+    <style>
+        .transport-mode-selector input,
+        .brand-selector input {
+            position: absolute;
+            z-index: 999;
+        }
+
+        .transport-mode-selector input:active+.vehicle-type,
+        .brand-selector input:active+.brand {
+            opacity: .9;
+        }
+
+        .transport-mode-selector input:checked+.vehicle-type,
+        .brand-selector input:checked+.brand {
+            -webkit-filter: none;
+            -moz-filter: none;
+            filter: none;
+        }
+
+        .vehicle-type,
+        .brand {
+            cursor: pointer;
+            background-size: contain;
+            background-repeat: no-repeat;
+            display: inline-block;
+            width: 100px;
+            height: 70px;
+            -webkit-transition: all 100ms ease-in;
+            -moz-transition: all 100ms ease-in;
+            transition: all 100ms ease-in;
+            -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+            -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+            filter: brightness(1.8) grayscale(1) opacity(.7);
+        }
+
+        .vehicle-type:hover,
+        .brand:hover {
+            -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+            filter: brightness(1.2) grayscale(.5) opacity(.9);
+        }
+
+        /* Extras */
+        a:visited {
+            color: #888
+        }
+
+        a {
+            color: #444;
+            text-decoration: none;
+        }
+
+        .transport-mode-selector input,
+        .brand-selector input {
+            margin: 5px 0 0 12px;
+        }
+
+        .transport-mode-selector label,
+        .brand-selector label {
+            margin-left: 7px;
+        }
+
+        span.cc {
+            color: #6d84b4
+        }
+
+        .image-w-60 {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark text-light py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1>Shuttle Service</h1>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="btn btn-primary">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Intro/About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2>About Us</h2>
+                    <p>Welcome to our shuttle service, where we strive to provide our customers with reliable, safe, and
+                        comfortable transportation. With years of experience in the transportation industry, our team is
+                        committed to ensuring your journey is as smooth and enjoyable as possible.</p>
+                    <p>Our fleet of vehicles includes cars, vans, and bikes, all maintained to the highest standards to
+                        ensure your safety and comfort. Our drivers are experienced, courteous, and knowledgeable about
+                        the area, ensuring that you arrive at your destination on time and with ease. </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="https://images.unsplash.com/photo-1600320254374-ce2d293c324e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80"
+                        alt="About Us" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container my-4">
+        <h2 class="text-center mb-5">Book Your Shuttle</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <form id="shuttle-booking">
+                    <div class="row mb-3">
+                        <div class="col-12 my-3">
+                            <label class="form-label">
+                                Select a preffered Service
+                            </label><br>
+                            <div class="brand-selector text-center">
+                                <input id="uber" type="radio" name="brand" value="uber"data-price="40" />
+                                <label class="brand" for="uber">
+                                    <img src="https://assets.website-files.com/5ee732bebd9839b494ff27cd/5ef0d5158e94c8cf501f5ea3_Uber_logo_2018-p-500.png"
+                                        class="image-w-60" alt="Uber">
+                                </label>
+                                <input checked="checked" id="nayana" type="radio" name="brand" value="nayana" data-price="36"/>
+                                <label class="brand" for="nayana">
+                                    <img src="/images/nayana-shuttle.png" class="image-w-60" alt="Nayana">
+                                </label>
+                                <input id="pickme" type="radio" name="brand" value="pickme" data-price="40"/>
+                                <label class="brand" for="pickme">
+                                    <img src="https://th.bing.com/th/id/R.4050998e70ddbca7c8c176090aabcf3d?rik=uAvN3dNVDjOCyQ&pid=ImgRaw&r=0"
+                                        class="image-w-60" alt="Nayana">
+                                </label>
+                            </div>
+                            <div class="alert alert-success" id="nayana-discount">
+                                <strong>10% discount</strong> for Nayana Shuttle Service
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 mb-sm-0">
+                            <label class="form-label">Select Vehicle Type</label><br>
+                            <div class="transport-mode-selector text-center">
+                                <input id="car" type="radio" name="mode" value="car" required/>
+                                <label class="vehicle-type" for="car">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/5290/5290207.png" alt="car" class="image-w-60">
+                                </label>
+                                <input checked="checked" id="van" type="radio" name="mode" value="van" required/>
+                                <label class="vehicle-type" for="van">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/5120/5120167.png" alt="car" class="image-w-60">
+                                </label>
+                                <input id="bike" type="radio" name="mode" value="bike" required/>
+                                <label class="vehicle-type" for="bike">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1227/1227030.png" alt="car" class="image-w-60">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" name="LastName" placeholder="Enter last name" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="pickupLocation" class="form-label">Pickup Location</label>
+                            <input type="text" class="form-control" id="pickupLocation"
+                                placeholder="Enter pickup location" name="pickupLocation" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="dropoffLocation" class="form-label">Dropoff Location</label>
+                            <input type="text" class="form-control" id="dropoffLocation" name="dropoffLocation"
+                                placeholder="Enter dropoff location" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="alert alert-secondary">
+                                    <strong id="distance">0 km</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6 mb-3 mb-sm-0">
+                            <label for="pickupDate" class="form-label">Pickup Date</label>
+                            <input type="date" class="form-control" id="pickupDate" name="pickupDate" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="pickupTime" class="form-label">Pickup Time</label>
+                            <input type="time" class="form-control" id="pickupTime" name="pickupTime" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-6">
+                            <label for="passengers" class="form-label">Number of Passengers</label>
+                            <input type="number" class="form-control" id="passengers" name="passengers"
+                                placeholder="Enter number of passengers" min="1" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="map"></div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Book Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <section id="features" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-0">
+                        <div class="card-body text-center">
+                            <i class="fas fa-map-marker-alt fa-3x mb-3"></i>
+                            <h4 class="card-title mb-3">Easy booking</h4>
+                            <p class="card-text">Book your ride in minutes, either online or through our app. Our
+                                booking process is simple and hassle-free.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0">
+                        <div class="card-body text-center">
+                            <i class="fas fa-clock fa-3x mb-3"></i>
+                            <h4 class="card-title mb-3">On-time service</h4>
+                            <p class="card-text">We know how important your time is. That's why we guarantee prompt and
+                                on-time pick-ups and drop-offs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0">
+                        <div class="card-body text-center">
+                            <i class="fas fa-shield-alt fa-3x mb-3"></i>
+                            <h4 class="card-title mb-3">Safe and secure</h4>
+                            <p class="card-text">All our drivers are licensed, insured, and experienced professionals
+                                who prioritize your safety and comfort.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-light py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">Flight Reservation System &copy; 2023</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0 text-right">Designed by Your Name</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Content body ends -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <script>
+        let directionsService;
+        let directionsRenderer;
+        let pricefactor=parseFloat(document.getElementById("nayana").dataset.price);
+        let isDiscounted=true;
+        // Initialize and center the map
+        function initMap() {
+            console.log("initMap");
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,
+                center: { lat: 6.927079, lng: 79.861244 }, // Default center location
+            });
+
+            // Add the direction service
+            directionsService = new google.maps.DirectionsService();
+
+            // Add the direction renderer
+            directionsRenderer = new google.maps.DirectionsRenderer({
+                map: map,
+            });
+
+            // Add the autocomplete input fields
+            const startInput = document.getElementById("pickupLocation");
+            const endInput = document.getElementById("dropoffLocation");
+            const startAutocomplete = new google.maps.places.Autocomplete(startInput);
+            const endAutocomplete = new google.maps.places.Autocomplete(endInput);
+
+            // Calculate the route and distance when the form is submitted
+            startInput.addEventListener("change", updateDistance);
+            endInput.addEventListener("change", updateDistance);
+        }
+
+        function updateDistance() {
+            const start = document.getElementById("pickupLocation").value;
+            const end = document.getElementById("dropoffLocation").value;
+
+            if (!start || !end) {
+                return;
+            }
+            // make an API call to get the directions
+            directionsService.route(
+                {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING, // change the travel mode based on the selected transport method
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        directionsRenderer.setDirections(response);
+                        //round the distance to one decimal place
+                        const distance = Math.round(response.routes[0].legs[0].distance.value / 100) / 10;
+
+                        const duration = response.routes[0].legs[0].duration.text;
+                        document.getElementById("distance").innerHTML = `
+                        <strong>${distance}</strong> km - ${duration}
+                        <p>
+                            <strong>Price: </strong> ${Math.ceil(pricefactor * distance)}/= LKR ${  isDiscounted ? `<span class="text-success">-10% applied</span>` : ""}
+                        </p>`;
+                    } else {
+                        alert("Could not calculate distance due to: " + status);
+                        document.getElementById("distance").textContent = "Error";
+                    }
+                }
+            );
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Initialize the map
+            initMap();
+        });
+
+        document.querySelectorAll("input[name=brand]").forEach((radio) => {
+            radio.addEventListener("change", function (e) {
+                pricefactor=parseFloat(e.target.dataset.price);
+                if (e.target.value === "nayana") {
+                    document.getElementById("nayana-discount").classList.remove("d-none");
+                    isDiscounted = true;
+                } else {
+                    document.getElementById("nayana-discount").classList.add("d-none");
+                    isDiscounted = false;
+                }
+                updateDistance();
+            });
+        });
+
+        document.getElementById("shuttle-booking").addEventListener("submit", function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            axios
+                .post("/api/shuttle/bookings", data)
+                .then((response) => {
+                    console.log(response);
+                    alert("Booking successful");
+                    document.getElementById("shuttle-booking").reset();
+                })
+                .catch((error) => {
+                    console.log(error);
+                    alert("Booking failed");
+                });
+        });
+
+
+
+        document.querySelectorAll("input[name=mode]").forEach((radio) => {
+            radio.addEventListener("change", function (e) {
+                if (e.target.value === "car") {
+                    document.getElementById("passengers").max = 4;
+                } else if(e.target.value === "van") {
+                    document.getElementById("passengers").max = 10;
+                }
+                updateDistance();
+            });
+        });
+    </script>
+</body>
+
+</html>
