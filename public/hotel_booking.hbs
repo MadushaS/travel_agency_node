@@ -165,14 +165,14 @@
       </div>
     </div>
 
-    <footer class="bg-light py-3">
+    <footer class="bg-light py-3 mt-3">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <p class="text-muted mb-0">Flight Reservation System &copy; 2023</p>
+            <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
           </div>
           <div class="col-md-6">
-            <p class="text-muted mb-0 text-right">Designed by Your Name</p>
+            <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
           </div>
         </div>
       </div>
@@ -188,44 +188,21 @@
 
     <!-- Include custom JS file -->
     <script>
-        // Get the form
-        const form = document.getElementById("hotel-booking");
-    
-        // Add event listener to the form
-        form.addEventListener("submit", (e) => {
-            // Prevent default form submission
-            e.preventDefault();
-    
-            // Get the form data
-            const checkinDate = document.getElementById("checkin-date").value;
-            const checkoutDate = document.getElementById("checkout-date").value;
-            const guests = document.getElementById("guests").value;
-            const email = document.getElementById("email").value;
-            const hotelName = document.getElementById("hotel-name").value;
-            const responseMsg = document.getElementById("response-msg");
-    
-            // send with axios
-
-            axios.post("/api/hotels/book", {
-                checkinDate,
-                checkoutDate,
-                guests,
-                email,
-                hotelName
-            })
-            .then((res) => {
-                const msg = document.createElement("div");
-                msg.classList.add("alert", "alert-success");
-                msg.innerHTML = res.data;
-                responseMsg.appendChild(msg);
-            })
-            .catch((err) => {
-                const msg = document.createElement("div");
-                msg.classList.add("alert", "alert-danger");
-                msg.innerHTML = err.response.data;
-                responseMsg.appendChild(msg);
-            })
-        });
+      // Get the form const form = document.getElementById("hotel-booking"); //
+      Add event listener to the form form.addEventListener("submit", (e) => { //
+      Prevent default form submission e.preventDefault(); // Get the form data
+      const checkinDate = document.getElementById("checkin-date").value; const
+      checkoutDate = document.getElementById("checkout-date").value; const
+      guests = document.getElementById("guests").value; const email =
+      document.getElementById("email").value; const hotelName =
+      document.getElementById("hotel-name").value; const responseMsg =
+      document.getElementById("response-msg"); // send with axios
+      axios.post("/api/hotels/book", { checkinDate, checkoutDate, guests, email,
+      hotelName }) .then((res) => { const msg = document.createElement("div");
+      msg.classList.add("alert", "alert-success"); msg.innerHTML = res.data;
+      responseMsg.appendChild(msg); }) .catch((err) => { const msg =
+      document.createElement("div"); msg.classList.add("alert", "alert-danger");
+      msg.innerHTML = err.response.data; responseMsg.appendChild(msg); }) });
     </script>
   </body>
 
