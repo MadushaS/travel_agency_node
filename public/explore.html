@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore | Nayana Travel Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
+        referrerpolicy="no-referrer" />
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/explore">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-section bg-dark text-light p-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 my-3 text-center">
+                    <h1>Explore popular Activities in Sri lanka</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 my-3">
+                    <h1>Surfing</h1>
+                    <p>
+                        Sri Lanka is known for its beautiful beaches and surfing is a
+                        popular activity among tourists. Take a lesson or rent a board and
+                        hit the waves!
+                    </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#surfingModal">
+                        Explore Now
+                    </button>
+                </div>
+                <div class="col-md-6 my-3">
+                    <img src="https://images.unsplash.com/photo-1455264745730-cb3b76250ae8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                        alt="Travel Image" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 my-3">
+                    <img src="https://images.unsplash.com/photo-1584200992694-29ca91aefde6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                        alt="Travel Image" class="img-fluid" />
+                </div>
+                <div class="col-md-6 my-3">
+                    <h1>Safari</h1>
+                    <p>
+                        Get up close and personal with Sri Lanka's incredible wildlife on
+                        a safari. Spot elephants, leopards, and other exotic animals.
+                    </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#safariModal">
+                        Explore Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 my-3">
+                    <h1>Hiking</h1>
+                    <p>
+                        Explore Sri Lanka's stunning landscapes on a hike. From lush tea
+                        plantations to rocky mountains, there's something for every level
+                        of hiker.
+                    </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hikingModal">
+                        Explore Now
+                    </button>
+                </div>
+                <div class="col-md-6 my-3">
+                    <img src="https://images.unsplash.com/reserve/91JuTaUSKaMh2yjB1C4A_IMG_9284.jpg?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                        alt="Travel Image" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 my-3">
+                    <img src="https://images.unsplash.com/photo-1600282342578-ddd10aaa1f47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                        alt="Travel Image" class="img-fluid" />
+                </div>
+                <div class="col-md-6 my-3">
+                    <h1>Scuba Diving and Whale Whatching</h1>
+                    <p>
+                        Sri Lanka is a great place to go scuba diving or whale watching.
+                        Explore the underwater world or spot whales and dolphins in the
+                        ocean.
+                    </p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#scubaModal">
+                        Explore Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="destinations">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Popular Destinations</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Colombo" />
+                        <div class="card-body">
+                            <h5 class="card-title">Colombo</h5>
+                            <p class="card-text">
+                                Explore the bustling city of Colombo with its colonial
+                                history, vibrant culture and delicious food.
+                            </p>
+                            <a href="/destinations/colombo" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="Galle" />
+                        <div class="card-body">
+                            <h5 class="card-title">Galle</h5>
+                            <p class="card-text">
+                                Explore the charming town of Galle with its colonial history,
+                                pristine beaches and lush greenery.
+                            </p>
+                            <a href="/destinations/galle" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="surfingModal" tabindex="-1" aria-labelledby="surfingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="surfingModalLabel">
+                        Surfing in Sri Lanka
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h3 class="fw-bolder fs-1 text-center">
+                            Where to Surf in Sri Lanka
+                        </h3>
+                        <p class="text-center">
+                            Sri Lanka is home to some of the best surfing spots in the
+                            world, with a variety of breaks to suit all levels of surfers.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3>When to Surf in Sri Lanka</h3>
+                        <p>
+                            The best time for surfing in Sri Lanka is from November to April
+                            when the southwest monsoon brings in consistent waves to the
+                            west and south coast of Sri Lanka. During this time, the water
+                            is also warmer and clearer, making it ideal for surfing. The
+                            east coast has a different surf season and the best time to surf
+                            in the east coast of Sri Lanka is from May to September.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Top surfing spots in Sri Lanka</h3>
+                        <div class="swiper px-5" id="topSurfSpots">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1552055568-f8c4fb8c6320?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            alt="Arugam Bay" loading="lazy" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Arugam Bay</h5>
+                                            <p class="card-text">
+                                                Located on the east coast of Sri Lanka, Arugam Bay is
+                                                a world-renowned surf spot that's popular with
+                                                advanced surfers. The best time to surf here is from
+                                                May to November
+                                            </p>
+                                            <a href="/map?lat=6.837751&long=81.8158492"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1644304545763-0023bb80715d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Hikkaduwa" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hikkaduwa</h5>
+                                            <p class="card-text">
+                                                Hikkaduwa is a popular surfing destination located on
+                                                the west coast of Sri Lanka. This popular beach town
+                                                on the west coast of Sri Lanka has some great surf
+                                                breaks for beginners and intermediate surfers. The
+                                                best time to surf here is from November to April.
+                                            </p>
+                                            <a href="/map?lat=6.127689&long=80.0983891"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1453210110568-1384e93a200e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Weligama" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Weligama</h5>
+                                            <p class="card-text">
+                                                Weligama is another popular surfing destination
+                                                located on the south coast of Sri Lanka. The best time
+                                                to surf in Weligama is from November to April.
+                                                Weligama is known for its long, gentle waves, making
+                                                it a great place for beginners.
+                                            </p>
+                                            <a href="/map?lat=5.9924252&long=80.412736"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1613693699413-7dde0260f437?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Mirissa" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mirissa</h5>
+                                            <p class="card-text">
+                                                Mirissa is a picturesque beach town on the south coast
+                                                of Sri Lanka that's known for its surf breaks. The
+                                                best time to surf here is from November to April.
+                                            </p>
+                                            <a href="/map?lat=5.9515825&long=80.4537606"><button
+                                                    class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1645839449907-72c4d3cb8fb3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Unawatuna" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Unawatuna</h5>
+                                            <p class="card-text">
+                                                Unawatuna is a small town located on the south coast
+                                                of Sri Lanka. It is a great place for beginner and
+                                                intermediate surfers. The best time to surf in
+                                                Unawatuna is from November to April.
+                                            </p>
+                                            <a href="/map?lat=6.0116356&long=80.2440333"><button
+                                                    class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">
+                            Recommended surfing schools in Sri Lanka:
+                        </h3>
+                        <div class="container mt-5">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Surf+South+Sri+Lanka"
+                                            class="card-img-top" alt="Surf South Sri Lanka" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Surf South Sri Lanka</h5>
+                                            <p class="card-text">
+                                                Surf South Sri Lanka is a popular surfing school
+                                                located in Weligama. They offer surfing lessons for
+                                                all levels and have experienced instructors.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> 077 123 4567
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Sunshinestories+Surf+%26+Yoga+Retreat"
+                                            class="card-img-top" alt="Sunshinestories Surf &amp; Yoga Retreat" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Sunshinestories Surf &amp; Yoga Retreat
+                                            </h5>
+                                            <p class="card-text">
+                                                Sunshinestories Surf &amp; Yoga Retreat is located in
+                                                Ahangama and offers surf lessons, yoga classes, and
+                                                accommodation.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> 077 234 5678
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Surf+n+Lanka"
+                                            class="card-img-top" alt="Surf n Lanka" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Surf n Lanka</h5>
+                                            <p class="card-text">
+                                                Surf n Lanka is a surf school located in Hikkaduwa.
+                                                They offer surf lessons, accommodation, and surfboard
+                                                rentals.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> 077 345 6789
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Ceylon+Sliders+Surf+School"
+                                            class="card-img-top" alt="Ceylon Sliders Surf School" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ceylon Sliders Surf School</h5>
+                                            <p class="card-text">
+                                                Ceylon Sliders Surf School is located in Weligama and
+                                                offers surf lessons, accommodation, and yoga classes.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> 077 456 7890
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Surfboard rentals:</h3>
+                        <p>
+                            Most of the surfing schools in Sri Lanka offer surfboard
+                            rentals. However, if you want to rent a surfboard independently,
+                            there are several places where you can do so.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Hikkaduwa Surf Point:</strong> Located in Hikkaduwa,
+                                this is a popular surfboard rental place.
+                            </li>
+                            <li>
+                                <strong>Tropix Surf Company:</strong> Located in Mirissa,
+                                Tropix Surf Company offers surfboard rentals and surf lessons.
+                            </li>
+                            <li>
+                                <strong>Arugam Bay Surf Point:</strong> Located in Arugam Bay,
+                                this is a popular surfboard rental place.
+                            </li>
+                        </ul>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Tips for Surfing in Sri Lanka</h3>
+                        <ul>
+                            <li>
+                                Always check the local surf conditions before heading out.
+                            </li>
+                            <li>
+                                Wear a rash guard and sunscreen to protect your skin from the
+                                sun.
+                            </li>
+                            <li>
+                                Respect the local surf culture and follow local surf
+                                etiquette.
+                            </li>
+                            <li>
+                                Consider hiring a local guide or taking a surf lesson if
+                                you're new to the area.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="safariModal" tabindex="-1" aria-labelledby="safariModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="safariModalLabel">
+                        Safari in Sri Lanka
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h3 class="fw-bolder fs-1 text-center">Safari in Sri Lanka</h3>
+                        <p class="text-center">
+                            The best time to go on a safari in Sri Lanka is during the dry
+                            season, which runs from May to September. During this time, the
+                            animals congregate around water sources, making them easier to
+                            spot. However, if you're looking to see elephants, the best time
+                            to go is from August to October, when they gather in large
+                            herds.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Where to Go</h3>
+                        <p>
+                            Sri Lanka has several national parks and wildlife reserves where
+                            you can go on a safari. Here are some of the most popular ones:
+                        </p>
+                        <div class="swiper px-5" id="topSurfSpots">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1627401099591-4772d63b86a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            alt="Yala National Park" loading="lazy" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Yala National Park</h5>
+                                            <p class="card-text">
+                                                Yala National Park is the most popular national park
+                                                in Sri Lanka, and it's home to a variety of animals,
+                                                including elephants, leopards, sloth bears, and
+                                                crocodiles. The park is divided into several zones,
+                                                and each zone has its own attractions.
+                                            </p>
+                                            <a href="/map?lat=6.837751&long=81.8158492"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1559038211-894339d3e99f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Udawalawe National Park" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Udawalawe National Park</h5>
+                                            <p class="card-text">
+                                                Udawalawe National Park is known for its large
+                                                population of elephants. The park is also home to
+                                                several other animals, including water buffalo, deer,
+                                                and crocodiles.
+                                            </p>
+                                            <a href="/map?lat=6.127689&long=80.0983891"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1551600694-d72f6a167ace?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Wilpattu National Park" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Wilpattu National Park</h5>
+                                            <p class="card-text">
+                                                Wilpattu National Park is the largest national park in
+                                                Sri Lanka, and it's home to a variety of animals,
+                                                including leopards, elephants, sloth bears, and water
+                                                buffalo.
+                                            </p>
+                                            <a href="/map?lat=5.9924252&long=80.412736"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1558668191-13737cb53fb5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Minneriya National Park" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Minneriya National Park</h5>
+                                            <p class="card-text">
+                                                Minneriya National Park is known for its large
+                                                population of elephants. The park is also home to
+                                                several other animals, including deer, monkeys, and
+                                                crocodiles.
+                                            </p>
+                                            <a href="/map?lat=5.9515825&long=80.4537606"><button
+                                                    class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">How to Plan Your Safari</h3>
+                        <p>
+                            There are several tour operators that offer safari packages in
+                            Sri Lanka. You can either book a private safari or join a group
+                            tour. Private safaris are more expensive but offer a more
+                            personalized experience, while group tours are more affordable
+                            but less flexible.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">What to Bring</h3>
+                        <p>Here are some things you should bring on your safari:</p>
+                        <ul>
+                            <li>Water and snacks to keep you hydrated and energized.</li>
+                            <li>Sunscreen and a hat to protect yourself from the sun.</li>
+                            <li>
+                                Insect repellent to protect yourself from mosquitoes and other
+                                bugs.
+                            </li>
+                            <li>Binoculars to get a closer look at the animals.</li>
+                            <li>Camera to capture the memories.</li>
+                            <li>Comfortable shoes and clothing.</li>
+                        </ul>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Safari Tips</h3>
+                        <p>
+                            Here are some tips to help you make the most of your safari:
+                        </p>
+                        <ul>
+                            <li>Listen to your guide and follow their instructions.</li>
+                            <li>
+                                Keep a safe distance from the animals and never approach them.
+                            </li>
+                            <li>
+                                Stay quiet and avoid making loud noises that might scare the
+                                animals away.
+                            </li>
+                            <li>
+                                Be patient and don't expect to see all the animals in one go.
+                            </li>
+                            <li>Respect the animals and their natural habitats.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="hikingModal" tabindex="-1" aria-labelledby="hikingModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="hikingModalLabel">
+                        Hiking in Sri Lanka
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h3 class="fw-bolder fs-1 text-center">Hiking in Sri Lanka</h3>
+                        <p class="text-center">
+                            Sri Lanka is a country blessed with natural beauty and diverse
+                            landscapes, making it an ideal destination for hiking and
+                            trekking enthusiasts. Here's a guide to help you plan your
+                            hiking adventure in Sri Lanka.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Where to Hike in Sri Lanka</h3>
+                        <p>
+                            Sri Lanka has a variety of hiking trails to suit all levels of
+                            hikers. Here are some popular hiking destinations:
+                        </p>
+                        <div class="swiper px-5" id="topSurfSpots">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1593983913587-361576add259?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            alt="Adam's Peak" loading="lazy" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Adam's Peak</h5>
+                                            <p class="card-text">
+                                                Adam's Peak, also known as Sri Pada, is a sacred
+                                                mountain located in the central highlands of Sri
+                                                Lanka. The hike to the top of Adam's Peak is a popular
+                                                pilgrimage for people of all faiths, and the stunning
+                                                views from the summit make it well worth the effort.
+                                            </p>
+                                            <a href="/map?lat=6.837751&long=81.8158492"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1607378112100-4c6a10ec4d50?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Horton Plains National Park" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Horton Plains National Park</h5>
+                                            <p class="card-text">
+                                                Horton Plains National Park is a protected area in the
+                                                central highlands of Sri Lanka. The park is home to a
+                                                variety of wildlife and plant species and has some
+                                                stunning hiking trails that take you through forests,
+                                                grasslands, and cloud forests. The most popular hike
+                                                in Horton Plains is to the World's End viewpoint,
+                                                which offers breathtaking views of the surrounding
+                                                landscape.
+                                            </p>
+                                            <a href="/map?lat=6.127689&long=80.0983891"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1613693687360-8b0d54705746?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="Ella" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Ella</h5>
+                                            <p class="card-text">
+                                                Ella is a small town located in the central highlands
+                                                of Sri Lanka and is a popular destination for hikers
+                                                and nature lovers. The hike to Ella Rock takes you
+                                                through tea plantations, forests, and villages, and
+                                                offers stunning views of the surrounding landscape.
+                                            </p>
+                                            <a href="/map?lat=5.9924252&long=80.412736"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1591815583994-70902efdefcb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"
+                                            class="card-img-top" alt="The Knuckles Mountain Range" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">The Knuckles Mountain Range</h5>
+                                            <p class="card-text">
+                                                The Knuckles Mountain Range is a protected area in the
+                                                central highlands of Sri Lanka and is home to a
+                                                variety of endemic plant and animal species. The range
+                                                offers some of the best hiking trails in Sri Lanka,
+                                                ranging from easy walks to challenging treks.
+                                            </p>
+                                            <a href="/map?lat=5.9515825&long=80.4537606"><button
+                                                    class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">When to hike in Sri Lanka</h3>
+                        <p>
+                            The best time to hike in Sri Lanka is from December to March
+                            when the weather is dry and cool, making it ideal for outdoor
+                            activities. However, some hiking destinations, such as Horton
+                            Plains, can be visited year-round.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">
+                            Recommended Hiking Tours in Sri Lanka:
+                        </h3>
+                        <div class="container mt-5">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Lakpura+LLC"
+                                            class="card-img-top" alt="Lakpura LLC" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Lakpura LLC</h5>
+                                            <p class="card-text">
+                                                Lakpura LLC is a popular tour operator that offers a
+                                                range of hiking tours in Sri Lanka, including the
+                                                Knuckles Mountain Range, Horton Plains, and Adam's
+                                                Peak.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 77 691 4833
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Sunshinestories+Surf+%26+Yoga+Retreat"
+                                            class="card-img-top" alt="Eco Team" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Eco Team</h5>
+                                            <p class="card-text">
+                                                Eco Team is a responsible tourism company that offers
+                                                hiking and trekking tours in Sri Lanka, including the
+                                                Knuckles Mountain Range, Horton Plains, and Ella Rock.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 777 699 854
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">DIY Hiking</h3>
+                        <p>
+                            If you prefer to hike independently, here are some tips to help
+                            you plan your hiking adventure:
+                        </p>
+                        <ul>
+                            <li>
+                                Make sure you have the right equipment, including sturdy
+                                hiking boots, a backpack, and a first aid kit.
+                            </li>
+                            <li>Check the weather forecast and dress appropriately.</li>
+                            <li>Bring plenty of water and snacks.</li>
+                            <li>
+                                Let someone know where you are going and when you expect to
+                                return.
+                            </li>
+                            <li>Stay on the marked trails and avoid hiking alone.</li>
+                            <li>
+                                Consider hiring a local guide if you're not familiar with the
+                                area.
+                            </li>
+                            <li>Respect the local culture and wildlife.</li>
+                        </ul>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Tips for Hiking in Sri Lanka</h3>
+                        <p>
+                            Here are some tips to help you make the most of your hiking:
+                        </p>
+                        <ul>
+                            <li>
+                                Wear comfortable, breathable clothing and sturdy hiking boots.
+                            </li>
+                            <li>Bring plenty of water and snacks.</li>
+                            <li>Bring a first aid kit and insect repellent.</li>
+                            <li>Wear sunscreen and a hat.</li>
+                            <li>Wear sunglasses to protect your eyes from the sun.</li>
+                            <li>Wear a waterproof jacket in case of rain.</li>
+                            <li>Bring a camera to capture the beautiful scenery.</li>
+                            <li>
+                                Consider hiring a local guide if you're not familiar with the
+                                area.
+                            </li>
+                            <li>Respect the local culture and wildlife.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="scubaModal" tabindex="-1" aria-labelledby="scubaModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scubaModalLabel">
+                        Scuba Diving and Whale Watching in Sri Lanka
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <h3 class="fw-bolder fs-1 text-center">Scuba Diving and Whale Watching</h3>
+                        <p class="text-center">
+                            Sri Lanka is a great destination for scuba diving and whale watching. The island nation has
+                            an abundance of marine life and a variety of diving sites to suit all levels of divers. The
+                            best time for diving and whale watching in Sri Lanka is from November to April, when the sea
+                            is calm and visibility is good.
+                        </p>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Scuba Diving in Sri Lanka</h3>
+                        <p>
+                            Sri Lanka's coral reefs, shipwrecks, and abundant marine life make it an excellent
+                            destination for scuba diving. Here are some of the best diving sites in Sri Lanka:
+                        </p>
+                        <div class="swiper px-5" id="topSurfSpots">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1607672996533-98ec2fb71625?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                                            alt="Pigeon Island" loading="lazy" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Pigeon Island</h5>
+                                            <p class="card-text">
+                                                Pigeon Island is located off the east coast of Sri Lanka and is a marine
+                                                national park. The island is known for its coral reefs and a variety of
+                                                marine life, including reef sharks, turtles, and barracudas.
+                                            </p>
+                                            <a href="/map?lat=6.837751&long=81.8158492"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1661373661790-fde9dd66b7f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                                            class="card-img-top" alt="Hikkaduwa" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hikkaduwa</h5>
+                                            <p class="card-text">
+                                                Hikkaduwa is located on the west coast of Sri Lanka and is one of the
+                                                most popular diving spots in the country. The area is home to a variety
+                                                of marine life, including schools of colorful fish, reef sharks, and sea
+                                                turtles.
+                                            </p>
+                                            <a href="/map?lat=6.127689&long=80.0983891"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/b0/69/83/caption.jpg?w=1200&h=-1&s=1"
+                                            class="card-img-top" alt="Trincomalee" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Trincomalee</h5>
+                                            <p class="card-text">
+                                                Trincomalee is located on the east coast of Sri Lanka and is another
+                                                popular diving destination. The area is known for its coral reefs,
+                                                shipwrecks, and whale sharks.
+                                            </p>
+                                            <a href="/map?lat=5.9924252&long=80.412736"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://srilankatravelpages.com/media/2021/09/fwn61hokimedgjxt2ysv9rb7lpaq3z80-800x528.jpg"
+                                            class="card-img-top" alt="Kirinda" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kirinda</h5>
+                                            <p class="card-text">
+                                                Kirinda is located on the south coast of Sri Lanka and is known for its
+                                                underwater caves, shipwrecks, and a variety of marine life, including
+                                                barracudas and groupers.
+                                            </p>
+                                            <a href="/map?lat=5.9515825&long=80.4537606"><button
+                                                    class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">
+                            Recommended Scuba Diving Centers:
+                        </h3>
+                        <div class="container mt-5">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Lakpura+LLC"
+                                            class="card-img-top" alt="Lakpura LLC" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dive Sri Lanka</h5>
+                                            <p class="card-text">
+                                                Dive Sri Lanka is a PADI-certified diving center located in Hikkaduwa.
+                                                They offer a range of courses for beginners and experienced divers.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 77 691 4833
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Poseidon+Diving+Station"
+                                            class="card-img-top" alt="Poseidon Diving Station" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Poseidon Diving Station</h5>
+                                            <p class="card-text">
+                                                Poseidon Diving Station is a PADI-certified diving center located in
+                                                Unawatuna. They offer a variety of courses, including night diving and
+                                                wreck diving.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 777 699 854
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Deep+Sea+Dive+Center"
+                                            class="card-img-top" alt="Deep Sea Dive Center" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Deep Sea Dive Center</h5>
+                                            <p class="card-text">
+                                                Deep Sea Dive Center is a PADI-certified diving center located in
+                                                Trincomalee. They offer a range of courses, including Nitrox diving and
+                                                underwater photography.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 777 699 854
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Whale Watching in Sri Lanka</h3>
+                        <p>
+                            Sri Lanka is one of the best destinations in the world for whale watching, with several
+                            species of whales and dolphins found in the waters around the island. Here are some of the
+                            best places to go whale watching in Sri Lanka:
+                        </p>
+                        <div class="swiper px-5" id="topSurfSpots">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://images.unsplash.com/photo-1568430328012-21ed450453ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=700&q=80"
+                                            alt="Mirissa" loading="lazy" class="card-img-top" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Mirissa</h5>
+                                            <p class="card-text">
+                                                Mirissa is located on the south coast of Sri Lanka and is one of the
+                                                best places to see blue whales. Other species of whales and dolphins can
+                                                also be seen here.
+                                            </p>
+                                            <a href="/map?lat=6.837751&long=81.8158492"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://www.lovesrilanka.org/wp-content/uploads/2020/04/LS_Whale-Watching-in-Trincomalee_DESK_1920x700.jpg"
+                                            class="card-img-top" alt="Trincomalee" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Trincomalee</h5>
+                                            <p class="card-text">
+                                                Trincomalee is located on the east coast of Sri Lanka and is another
+                                                popular whale watching destination. Blue whales, sperm whales, and
+                                                spinner dolphins can be seen here.
+                                            </p>
+                                            <a href="/map?lat=6.127689&long=80.0983891"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="card h-100">
+                                        <img src="https://www.freetour.com/images/tours/25598/dolphin-watching-tours-01.jpg"
+                                            class="card-img-top" alt="Kalpitiya" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kalpitiya</h5>
+                                            <p class="card-text">
+                                                Kalpitiya is located on the west coast of Sri Lanka and is a great place
+                                                to see dolphins, including the playful spinner dolphins.
+                                            </p>
+                                            <a href="/map?lat=5.9924252&long=80.412736"><button class="btn btn-primary">
+                                                    View on Map
+                                                </button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <hr />
+                    </div>
+
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">
+                            Recommended Whale Watching Tour Operators:
+                        </h3>
+                        <div class="container mt-5">
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Raja+and+the+Whales"
+                                            class="card-img-top" alt="Raja and the Whales" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Raja and the Whales</h5>
+                                            <p class="card-text">
+                                                Raja and the Whales is a highly rated whale watching tour operator based
+                                                in Mirissa. They offer half-day tours and have experienced guides.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 77 691 4833
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Whale+Watching+Club"
+                                            class="card-img-top" alt="Whale Watching Club" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Whale Watching Club</h5>
+                                            <p class="card-text">
+                                                Whale Watching Club is a highly rated whale watching tour operator based
+                                                in Trincomalee. They offer full-day tours and have experienced guides.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 777 699 854
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card h-100">
+                                        <img src="https://via.placeholder.com/500x300.png?text=Kalpitiya+Tours"
+                                            class="card-img-top" alt="Kalpitiya Tours" />
+                                        <div class="card-body">
+                                            <h5 class="card-title">Kalpitiya Tours</h5>
+                                            <p class="card-text">
+                                                Kalpitiya Tours is a highly rated whale watching tour operator based in
+                                                Kalpitiya. They offer dolphin watching tours as well as whale watching
+                                                tours.
+                                            </p>
+                                            <p class="card-text">
+                                                <strong>Contact:</strong> +94 777 699 854
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Tips for Scuba Diving in Sri Lanka:</h3>
+                        <p>
+                            Here are some tips to help you make the most of your scuba diving
+                            experience:
+                        </p>
+                        <ul>
+                            <li>Choose a reputable dive center: Look for a dive center with experienced instructors and
+                                good reviews. Make sure they follow safety protocols and have well-maintained
+                                equipment.</li>
+
+                            <li>Check the weather conditions: Before you plan your dive, check the weather forecast to
+                                make sure the conditions are suitable. Strong winds and heavy rain can affect visibility
+                                and make diving dangerous.</li>
+
+                            <li>Be aware of currents: Sri Lanka has strong ocean currents, so it's important to be aware
+                                of them when diving. Make sure you have the proper training and experience to handle
+                                these conditions.</li>
+
+                            <li>Respect the marine life: As a diver, it's important to respect the marine life and their
+                                habitat. Do not touch or disturb the marine animals, and avoid damaging coral reefs.
+                            </li>
+
+                            <li>Follow the dive plan: Before you go on your dive, make sure you have a dive plan and
+                                stick to it. This will help ensure that you stay safe and avoid any potential risks.
+                            </li>
+
+                        </ul>
+                        <hr />
+                    </div>
+                    <div class="container">
+                        <h3 class="fw-bolder fs-3">Tips for Whale Watching in Sri Lanka:</h3>
+                        <p>
+                            Here are some tips to help you make the most of your whale watching
+                            experience:
+                        </p>
+                        <ul>
+                            <li>Choose a reputable tour operator: Look for a tour operator with experienced guides and
+                                good reviews. Make sure they follow safety protocols and have well-maintained
+                                equipment.</i>
+
+                            <li>Check the weather conditions: Before you plan your whale watching trip, check the
+                                weather
+                                forecast to make sure the conditions are suitable. Strong winds and heavy rain can
+                                affect visibility and make whale watching dangerous.</li>
+
+                            <li>Be aware of currents: Sri Lanka has strong ocean currents, so it's important to be aware
+                                of them when whale watching. Make sure you have the proper training and experience to
+                                handle these conditions.</li>
+
+                            <li>Respect the marine life: As a whale watcher, it's important to respect the marine life
+                                and their habitat. Do not touch or disturb the marine animals, and avoid damaging coral
+                                reefs.</li>
+
+                            <li>Follow the tour plan: Before you go on your whale watching trip, make sure you have a
+                                tour plan and stick to it. This will help ensure that you stay safe and avoid any
+                                potential
+                                risks.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light py-3 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+    <!-- Add JS links for Swiper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiperConfig = {
+            // Optional parameters
+            direction: "horizontal",
+            loop: true,
+            slidesPerView: 3,
+            spaceBetween: 30,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        };
+        const topSurfSpots = new Swiper("#topSurfSpots", {
+            // Optional parameters
+            slidesPerView: "auto",
+            spaceBetween: 30,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+
+</html>
