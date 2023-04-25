@@ -15,6 +15,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 const port = process.env.PORT || 3000;
 
 const pageRoutes = require('./routes/page_routes.js');
+const destinationRoutes = require('./routes/destination_routes.js');
 
 const airportController = require('./Controller/airportController');
 const contactFormController = require('./Controller/contactFormController');
@@ -34,6 +35,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(pageRoutes);
+app.use(destinationRoutes);
 
 app.post('/api/contact', contactFormController.contactFormSubmit);
 

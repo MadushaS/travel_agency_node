@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const hotelController = require('../Controller/hotelController');
+const tourPackageController = require('../Controller/tourPackageController');
 
 router.get('/', (req, res) => {
     res.sendFile('index.html', { root: './public' });
@@ -43,6 +44,12 @@ router.get('/messaging', (req, res) => {
 
 router.get('/shuttles', (req, res) => {
     res.sendFile('shuttles.html', { root: './public' });
+});
+
+router.get('/package/:name', tourPackageController.getPackage);
+
+router.get('/explore', (req, res) => {
+    res.sendFile('explore.html', { root: './public' });
 });
 
 module.exports = router;
