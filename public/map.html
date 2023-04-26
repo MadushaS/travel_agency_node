@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
     referrerpolicy="no-referrer" />
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjmzB7fsk_CtCz4lZdLhyt3j4R6kSZyWI&libraries=places&callback=initMap"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjmzB7fsk_CtCz4lZdLhyt3j4R6kSZyWI&libraries=places"></script>
 
 </head>
 
@@ -101,7 +101,7 @@
       <div class="col-md-3">
         <div class="card">
           <div class="card-body">
-            <form>
+            <form id="filter-form">
               <div class="form-group">
                 <label for="search">Search:</label>
                 <input type="text" class="form-control" id="search" placeholder="Search for a place...">
@@ -187,222 +187,8 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
-  <script>
-    const searchInput = document.querySelector('#search');
-    const categorySelect = document.querySelector('#category');
-    const ratingSelect = document.querySelector('#rating');
-    const placesList = document.querySelector('#placeList');
+  <script src="/js/map.js"></script>
 
-    let map;
-    let markers = [];
-
-
-    function initMap(lat, long) {
-
-
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: lat ? lat : 37.7749, lng: long ? long : -122.4194 },
-        zoom: 17
-      });
-      //get current location
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-          map.setCenter(initialLocation);
-        });
-      }
-
-      const searchBox = new google.maps.places.SearchBox(
-        document.getElementById("search-box")
-      );
-
-      // set the bounds of the search box to the map's viewport
-      map.addListener("bounds_changed", () => {
-        searchBox.setBounds(map.getBounds());
-      });
-
-      // create the markers array to store the markers
-      const markers = [];
-
-      // listen for the event fired when the user selects a prediction from the search box
-      searchBox.addListener("places_changed", () => {
-        const places = searchBox.getPlaces();
-
-        // if there are no places, do nothing
-        if (places.length == 0) {
-          return;
-        }
-
-        // clear out the old markers
-        markers.forEach((marker) => {
-          marker.setMap(null);
-        });
-        markers.length = 0;
-      });
-
-      // Create a PlacesService object to send search requests
-      const service = new google.maps.places.PlacesService(map);
-
-      // Listen for form submit and apply filters
-      document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        applyFilters(service);
-      });
-
-      // add event listener for "Get Directions" button
-      const directionsService = new google.maps.DirectionsService();
-      const directionsRenderer = new google.maps.DirectionsRenderer();
-      directionsRenderer.setMap(map);
-
-      document.getElementById("get-directions").addEventListener("click", () => {
-        calculateAndDisplayRoute(directionsService, directionsRenderer);
-      }); 
-    }
-
-
-    function createMarker(place) {
-      const marker = new google.maps.Marker({
-        position: place.geometry.location,
-        map: map,
-        title: place.name
-      });
-
-      // Add marker to markers array
-      markers.push(marker);
-
-      // Add click event listener to show place info window
-      marker.addListener('click', function () {
-        const infowindow = new google.maps.InfoWindow({
-          content: `<h6>${place.name}</h6>
-                <p>${place.formatted_address}</p>
-                <p>Rating: ${place.rating ? place.rating : 'N/A'}</p>`
-        });
-        infowindow.open(map, marker);
-      });
-    }
-
-    function clearMarkers() {
-      markers.forEach(marker => marker.setMap(null));
-      markers = [];
-    }
-
-    function applyFilters(service) {
-      const search = searchInput.value;
-      const category = categorySelect.value;
-      const rating = ratingSelect.value;
-
-      // Create request object with search parameters
-      const request = {
-        query: search,
-        type: category,
-        rating: rating,
-        location: map.getCenter(),
-        radius: '500',
-      };
-
-      // Send search request and handle response
-      service.textSearch(request, function (results, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK) {
-          // Clear previous markers and list items
-          clearMarkers();
-          placesList.innerHTML = '';
-
-          // Create markers and list items for each place
-          results.forEach(result => {
-            createMarker(result);
-            const placeCard = cardMaker(result);
-            placesList.appendChild(placeCard);
-          });
-        } else {
-          console.error('Search request failed with status:', status);
-        }
-      });
-    }
-
-    function cardMaker(place) {
-      const placeCard = document.createElement("div");
-      placeCard.classList.add("card", "mb-3", "col-md-4");
-
-      // Create the place card body element
-      const placeCardBody = document.createElement("div");
-      placeCardBody.classList.add("row", "no-gutters");
-
-      // Create the place image element
-      const placeImage = document.createElement("img");
-      placeImage.src = place.photos ? place.photos[0].getUrl({ maxWidth: 350, maxHeight: 350 }) : `/images/no_image.jpg`;
-      placeImage.classList.add("card-img");
-
-      // Create the place details element
-      const placeDetails = document.createElement("div");
-      placeDetails.classList.add("col-md-8");
-
-      // Create the place details body element
-      const placeDetailsBody = document.createElement("div");
-      placeDetailsBody.classList.add("card-body");
-
-      // Create the place name element
-      const placeName = document.createElement("h5");
-      placeName.classList.add("card-title");
-      placeName.textContent = place.name;
-
-      // Create the place address element
-      const placeAddress = document.createElement("p");
-      placeAddress.classList.add("card-text");
-      placeAddress.textContent = place.formatted_address;
-
-      // Create the place rating element
-      const placeRating = document.createElement("p");
-      placeRating.classList.add("card-text");
-      placeRating.innerHTML = `Rating: ${place.rating} <i class="fas fa-star"></i>`;
-
-      // Append the elements to the card and card body
-      placeCardBody.appendChild(placeImage);
-      placeCardBody.appendChild(placeDetails);
-
-      placeDetails.appendChild(placeDetailsBody);
-      placeDetailsBody.appendChild(placeName);
-      placeDetailsBody.appendChild(placeAddress);
-      placeDetailsBody.appendChild(placeRating);
-
-      placeCard.appendChild(placeCardBody);
-
-      // Append the card to the place list
-      return placeCard;
-    }
-    //check is lat long paramerts are preset in url
-    if (window.location.href.indexOf("lat") > -1 && window.location.href.indexOf("long") > -1) {
-      //get lat and long from url
-      var url = new URL(window.location.href);
-      var lat = url.searchParams.get("lat");
-      var long = url.searchParams.get("long");
-      //set map center to lat and long
-      initMap(parseFloat(lat), parseFloat(long));
-    } else {
-      //if lat and long are not preset in url
-      initMap();
-    }
-
-    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-      const start = document.getElementById("start").value;
-      const end = document.getElementById("end").value;
-
-      directionsService.route(
-        {
-          origin: start,
-          destination: end,
-          travelMode: google.maps.TravelMode.DRIVING,
-        },
-        (response, status) => {
-          if (status === "OK") {
-            directionsRenderer.setDirections(response);
-          } else {
-            window.alert("Directions request failed due to " + status);
-          }
-        }
-      );
-    }
-
-  </script>
 </body>
 
 </html>
