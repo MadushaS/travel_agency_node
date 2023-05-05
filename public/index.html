@@ -42,7 +42,7 @@
     
 
     <header class="masthead">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand text-light" href="/">Nayana Travel Agency</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -50,7 +50,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav ms-auto ">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
@@ -59,7 +59,7 @@
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Services
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/flights">Flights</a>
                                 </li>
@@ -201,171 +201,176 @@
         </div>
     </div>
 
+    <!-- Packages section -->
     <div class="container">
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="fw-bold">Tour Packages</h3>
-                </div>
-                <div class="card-body p-4">
-                    <div class="row">
-                        <div class="swiper" id="package-swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide text-center">
-                                    <img src="/images/packages/hill-country.jpg" loading="lazy" class="swiper-lazy"
-                                        alt="Hill Country Explorer">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Hill Country Explorer</h2>
-                                        <p>A trip focused on exploring the scenic hill country, including tea
-                                            plantations, waterfalls, and colonial-era towns like Nuwara Eliya and Ella.
-                                        </p>
-                                        <a href="/package/Hilltop Haven Tour" class="btn btn-primary">See Info</a>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="fw-bold">Tour Packages</h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="swiper" id="package-swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide text-center">
+                                            <img src="/images/packages/hill-country.jpg" loading="lazy" class="swiper-lazy"
+                                                alt="Hill Country Explorer">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Hill Country Explorer</h2>
+                                                <p>A trip focused on exploring the scenic hill country, including tea
+                                                    plantations, waterfalls, and colonial-era towns like Nuwara Eliya and Ella.
+                                                </p>
+                                                <a href="/package/Hilltop Haven Tour" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="/images/packages/cultural.jpg" loading="lazy" class="swiper-lazy"
+                                                alt="Cultural Triangle Tour">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Cultural Triangle Tour</h2>
+                                                <p>A journey through Sri Lanka's ancient cities and World Heritage Sites,
+                                                    including Anuradhapura, Polonnaruwa, and Sigiriya.</p>
+                                                <a href="/package/Cultural Tour" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="/images/packages/beach-getaway.jpeg" loading="lazy" class="swiper-lazy"
+                                                alt="Beach Getaway">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Beach Getaway</h2>
+                                                <p>A relaxing vacation spent lounging on some of Sri Lanka's most beautiful
+                                                    beaches, such as Mirissa, Unawatuna, and Tangalle.</p>
+                                                <a href="/package/Beach Getaway" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="/images/packages/wildlife.jpg" class="swiper-lazy" loading="lazy"
+                                                alt="Wildlife Adventure">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Wildlife Adventure</h2>
+                                                <p>A safari-style trip to national parks like Yala, Wilpattu, and Udawalawe, to
+                                                    see Sri Lanka's diverse array of wildlife in their natural habitats.</p>
+                                                <a href="/package/Sri Lankan Wildlife Tour" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="/images/packages/foodie.jpg" loading="lazy" class="swiper-lazy"
+                                                alt="Sri Lankan Foodie Tour">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Sri Lankan Foodie Tour</h2>
+                                                <p>A culinary tour of the island, sampling delicious and unique dishes like
+                                                    hoppers, kottu, and seafood curries.</p>
+                                                <a href="/package/Sri Lankan Foodie Tour" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="/images/packages/cultural.jpg" loading="lazy" class="swiper-lazy"
-                                        alt="Cultural Triangle Tour">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Cultural Triangle Tour</h2>
-                                        <p>A journey through Sri Lanka's ancient cities and World Heritage Sites,
-                                            including Anuradhapura, Polonnaruwa, and Sigiriya.</p>
-                                        <a href="/package/Cultural Tour" class="btn btn-primary">See Info</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="/images/packages/beach-getaway.jpeg" loading="lazy" class="swiper-lazy"
-                                        alt="Beach Getaway">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Beach Getaway</h2>
-                                        <p>A relaxing vacation spent lounging on some of Sri Lanka's most beautiful
-                                            beaches, such as Mirissa, Unawatuna, and Tangalle.</p>
-                                        <a href="/package/Beach Getaway" class="btn btn-primary">See Info</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="/images/packages/wildlife.jpg" class="swiper-lazy" loading="lazy"
-                                        alt="Wildlife Adventure">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Wildlife Adventure</h2>
-                                        <p>A safari-style trip to national parks like Yala, Wilpattu, and Udawalawe, to
-                                            see Sri Lanka's diverse array of wildlife in their natural habitats.</p>
-                                        <a href="/package/Sri Lankan Wildlife Tour" class="btn btn-primary">See Info</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="/images/packages/foodie.jpg" loading="lazy" class="swiper-lazy"
-                                        alt="Sri Lankan Foodie Tour">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Sri Lankan Foodie Tour</h2>
-                                        <p>A culinary tour of the island, sampling delicious and unique dishes like
-                                            hoppers, kottu, and seafood curries.</p>
-                                        <a href="/package/Sri Lankan Foodie Tour" class="btn btn-primary">See Info</a>
-                                    </div>
+                                    <!-- If we need pagination -->
+                                    <div class="swiper-pagination"></div>
+        
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+        
+                                    <!-- If we need scrollbar -->
+                                    <div class="swiper-scrollbar"></div>
                                 </div>
                             </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <!-- If we need scrollbar -->
-                            <div class="swiper-scrollbar"></div>
                         </div>
                     </div>
+        
                 </div>
             </div>
-
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="container">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="fw-bold">Favourite Destinations</h3>
-                </div>
-                <div class="card-body p-4">
-                    <div class="row">
-                        <div class="swiper" id="destination-swiper">
-                            <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
-                                        loading="lazy" class="swiper-lazy" alt="Galle">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Galle</h2>
-                                        <p>
-                                            Galle is a city on the southwest coast of Sri Lanka. It’s known for
-                                            Galle Fort, the fortified old city founded by Portuguese colonists in the
-                                            16th century. Stone sea walls, expanded by the Dutch, encircle car-free
-                                            streets with architecture reflecting Portuguese, Dutch and British
-                                            rule. Notable buildings include the 18th-century Dutch Reformed Church.
-                                            Galle Lighthouse stands on the fort’s southeast tip.
-                                        </p>
-                                        <a href="/destinations/galle" class="btn btn-primary">See Info</a>
+            <div class="col-12 col-lg-6">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="fw-bold">Favourite Destinations</h3>
+                        </div>
+                        <div class="card-body p-4">
+                            <div class="row">
+                                <div class="swiper" id="destination-swiper">
+                                    <!-- Additional required wrapper -->
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide text-center">
+                                            <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
+                                                loading="lazy" class="swiper-lazy" alt="Galle">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Galle</h2>
+                                                <p>
+                                                    Galle is a city on the southwest coast of Sri Lanka. It’s known for
+                                                    Galle Fort, the fortified old city founded by Portuguese colonists in the
+                                                    16th century. Stone sea walls, expanded by the Dutch, encircle car-free
+                                                    streets with architecture reflecting Portuguese, Dutch and British
+                                                    rule. Notable buildings include the 18th-century Dutch Reformed Church.
+                                                    Galle Lighthouse stands on the fort’s southeast tip.
+                                                </p>
+                                                <a href="/destinations/galle" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
+                                                loading="lazy" class="swiper-lazy" alt="Colombo">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Colombo</h2>
+                                                <p>
+                                                    Colombo, the capital of Sri Lanka, has a long history as a port on
+                                                    ancient east-west trade routes, ruled successively by the Portuguese,
+                                                    Dutch and British. That heritage is reflected in its its architecture,
+                                                    mixing colonial buildings with high-rises and shopping malls. The
+                                                    imposing Colombo National Museum, dedicated to Sri Lankan history,
+                                                    borders sprawling Viharamahadevi Park and its giant Buddha.
+                                                </p>
+                                                <a href="/destinations/colombo" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide text-center">
+                                            <img src="https://images.unsplash.com/photo-1621393614326-2f9ed389ce02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
+                                                loading="lazy" class="swiper-lazy" alt="Anuradapura">
+                                            <div class="swiper-lazy-preloader"></div>
+                                            <div class="swiper-slide-caption mb-5">
+                                                <h2>Anuradapura</h2>
+                                                <p>
+                                                    Anuradhapura is an ancient city, located at a distance of 205 km from
+                                                    Colombo in Sri Lanka. The city is famous for its well-preserved ruins
+                                                    of ancient Sri Lankan civilization. It was the third capital of the
+                                                    Kingdom of Rajarata, following the kingdoms of Tambapanni and Upatissa
+                                                    Nuwara.
+                                                </p>
+                                                <a href="/destinations/Anuradhapura" class="btn btn-primary">See Info</a>
+                                            </div>
+                                        </div>
+        
                                     </div>
+                                    <!-- If we need pagination -->
+                                    <div class="swiper-pagination"></div>
+        
+                                    <!-- If we need navigation buttons -->
+                                    <div class="swiper-button-prev"></div>
+                                    <div class="swiper-button-next"></div>
+        
+                                    <!-- If we need scrollbar -->
+                                    <div class="swiper-scrollbar"></div>
                                 </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
-                                        loading="lazy" class="swiper-lazy" alt="Colombo">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Colombo</h2>
-                                        <p>
-                                            Colombo, the capital of Sri Lanka, has a long history as a port on
-                                            ancient east-west trade routes, ruled successively by the Portuguese,
-                                            Dutch and British. That heritage is reflected in its its architecture,
-                                            mixing colonial buildings with high-rises and shopping malls. The
-                                            imposing Colombo National Museum, dedicated to Sri Lankan history,
-                                            borders sprawling Viharamahadevi Park and its giant Buddha.
-                                        </p>
-                                        <a href="/destinations/colombo" class="btn btn-primary">See Info</a>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1621393614326-2f9ed389ce02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
-                                        loading="lazy" class="swiper-lazy" alt="Anuradapura">
-                                    <div class="swiper-lazy-preloader"></div>
-                                    <div class="swiper-slide-caption mb-5">
-                                        <h2>Anuradapura</h2>
-                                        <p>
-                                            Anuradhapura is an ancient city, located at a distance of 205 km from
-                                            Colombo in Sri Lanka. The city is famous for its well-preserved ruins
-                                            of ancient Sri Lankan civilization. It was the third capital of the
-                                            Kingdom of Rajarata, following the kingdoms of Tambapanni and Upatissa
-                                            Nuwara.
-                                        </p>
-                                        <a href="/destinations/Anuradhapura" class="btn btn-primary">See Info</a>
-                                    </div>
-                                </div>
-
                             </div>
-                            <!-- If we need pagination -->
-                            <div class="swiper-pagination"></div>
-
-                            <!-- If we need navigation buttons -->
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
-
-                            <!-- If we need scrollbar -->
-                            <div class="swiper-scrollbar"></div>
                         </div>
                     </div>
+        
                 </div>
             </div>
-
         </div>
-
     </div>
+
+
 
     <footer class="bg-light py-3 mt-3">
         <div class="container">
@@ -410,7 +415,7 @@
             loop: true,
         });
         const destinationSwiper = new Swiper('#destination-swiper', {
-            slidesPerView: 2,
+            slidesPerView: "auto",
             spaceBetween: 10,
             navigation: {
                 nextEl: '.swiper-button-next',
