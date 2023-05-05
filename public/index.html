@@ -18,66 +18,104 @@
             api_key: 'wg_d4e27959767375d41da670c79339b8551'
         });
     </script>
+    <style>
+        .masthead {
+            padding-bottom: calc(10rem - 4.5rem);
+            background: linear-gradient(to bottom, rgba(66, 77, 92, 0.5) 0%, rgba(72, 66, 92, 0.5) 100%),
+                url(/images/index_header.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            background-size: cover;
+        }
+
+        header.masthead {
+            height: 100vh;
+            min-height: 40rem;
+            padding-bottom: 0;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Services
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/flights">Flights</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/hotels">Hotels</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/shuttles">Shuttles</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/map">Map</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/weather">Weather</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/messaging">Messaging</a>
-                            </li>
-                        </ul>
-                    </li>
+    
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/reviews">Reviews</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
-                    </li>
-
-                </ul>
+    <header class="masthead">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand text-light" href="/">Nayana Travel Agency</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/flights">Flights</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/hotels">Hotels</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/shuttles">Shuttles</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/map">Map</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/weather">Weather</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/messaging">Messaging</a>
+                                </li>
+                            </ul>
+                        </li>
+    
+                        <li class="nav-item">
+                            <a class="nav-link" href="/reviews">Reviews</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+    
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container px-4 px-lg-5 h-100">
+            <div class="row gx-4 gx-lg-5 h-100">
+                <div class="col-lg-8 align-self-end">
+                    <h1 class="display-1 font-weight-bold fw-bold text-white">Nayana Travel Agency</h1>
+                    <hr class="divider" />
+                </div>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-light mb-5 display-6 fw-lighter">
+                        Explore the beauty of Sri Lanka with Nayana Travel Agency, your one-stop travel agency for all
+                        your travel needs.
+                    </p>
+                    <a class="btn btn-primary btn-lg" href="#cont">
+                        TRAVEL
+                    </a>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     <!-- Services section -->
-    <div class="container my-5">
+    <div class="container my-5" id="cont">
         <div class="row mb-5">
             <div class="col-12 text-center">
                 <h1 class="display-4">Welcome to Nayana Travel Agency</h1>
@@ -205,7 +243,7 @@
                                         <h2>Beach Getaway</h2>
                                         <p>A relaxing vacation spent lounging on some of Sri Lanka's most beautiful
                                             beaches, such as Mirissa, Unawatuna, and Tangalle.</p>
-                                            <a href="/package/Beach Getaway" class="btn btn-primary">See Info</a>
+                                        <a href="/package/Beach Getaway" class="btn btn-primary">See Info</a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide text-center">
@@ -216,7 +254,7 @@
                                         <h2>Wildlife Adventure</h2>
                                         <p>A safari-style trip to national parks like Yala, Wilpattu, and Udawalawe, to
                                             see Sri Lanka's diverse array of wildlife in their natural habitats.</p>
-                                            <a href="/package/Sri Lankan Wildlife Tour" class="btn btn-primary">See Info</a>
+                                        <a href="/package/Sri Lankan Wildlife Tour" class="btn btn-primary">See Info</a>
                                     </div>
                                 </div>
                                 <div class="swiper-slide text-center">
@@ -227,7 +265,7 @@
                                         <h2>Sri Lankan Foodie Tour</h2>
                                         <p>A culinary tour of the island, sampling delicious and unique dishes like
                                             hoppers, kottu, and seafood curries.</p>
-                                            <a href="/package/Sri Lankan Foodie Tour" class="btn btn-primary">See Info</a>
+                                        <a href="/package/Sri Lankan Foodie Tour" class="btn btn-primary">See Info</a>
                                     </div>
                                 </div>
                             </div>
@@ -260,8 +298,8 @@
                             <!-- Additional required wrapper -->
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" loading="lazy" class="swiper-lazy"
-                                        alt="Galle">
+                                    <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+                                        loading="lazy" class="swiper-lazy" alt="Galle">
                                     <div class="swiper-lazy-preloader"></div>
                                     <div class="swiper-slide-caption mb-5">
                                         <h2>Galle</h2>
@@ -277,8 +315,8 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" loading="lazy" class="swiper-lazy"
-                                        alt="Colombo">
+                                    <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+                                        loading="lazy" class="swiper-lazy" alt="Colombo">
                                     <div class="swiper-lazy-preloader"></div>
                                     <div class="swiper-slide-caption mb-5">
                                         <h2>Colombo</h2>
@@ -294,8 +332,8 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide text-center">
-                                    <img src="https://images.unsplash.com/photo-1621393614326-2f9ed389ce02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80" loading="lazy" class="swiper-lazy"
-                                        alt="Anuradapura">
+                                    <img src="https://images.unsplash.com/photo-1621393614326-2f9ed389ce02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+                                        loading="lazy" class="swiper-lazy" alt="Anuradapura">
                                     <div class="swiper-lazy-preloader"></div>
                                     <div class="swiper-slide-caption mb-5">
                                         <h2>Anuradapura</h2>
@@ -309,7 +347,7 @@
                                         <a href="/destinations/Anuradhapura" class="btn btn-primary">See Info</a>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
