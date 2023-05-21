@@ -1,12 +1,18 @@
 const express = require('express');
 const router = express.Router();
+const { requiresAuth } = require('express-openid-connect');
 
 const hotelController = require('../Controller/hotelController');
 const tourPackageController = require('../Controller/tourPackageController');
 
 router.get('/', (req, res) => {
+    console.log(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
     res.sendFile('index.html', { root: './public' });
 });
+
+router.get('/profile', requiresAuth(), (req, res) => {
+    res.send(JSON.stringify(req.oidc.user));
+  });
 
 router.get('/about', (req, res) => {
     res.sendFile('about.html', { root: './public' });

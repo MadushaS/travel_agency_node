@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 const path = require('path');
 const mongoose = require('mongoose');
+const { auth } = require('express-openid-connect');
 
 const db = mongoose.connection;
 db.once('open', _ => {
@@ -26,6 +27,16 @@ const hotelController = require('./Controller/hotelController');
 const weatherController = require('./Controller/weatherController');
 const chatController = require('./Controller/chatController');
 const shuttleController = require('./Controller/shuttleController');
+const { env } = require('process');
+
+const auth_config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH0_SECRET,
+  baseURL: 'http://localhost:3000',
+  clientID: process.env.AUTH0_CLIENT,
+  issuerBaseURL:process.env.AUTH0_ISSUER 
+};
 
 const app = express();
 
@@ -33,6 +44,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(auth(auth_config));
 
 app.use(pageRoutes);
 app.use(destinationRoutes);
