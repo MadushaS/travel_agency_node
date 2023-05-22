@@ -48,7 +48,7 @@ async function getHotelsData() {
                     <div class="btn-group">
                     <a href="/hotels/book?name=${hotel.name}" class="btn btn-primary">Book now</a>
                     <a href="/map?lat=${hotel.latitude}&long=${hotel.longitude}" class="btn btn-secondary">
-                        <i class="fa-regular fa-location-dot"></i>
+                        <i class="fas fa-regular fa-location-dot"></i>
                         View on map
                     </a>
                     </div>
