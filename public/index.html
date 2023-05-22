@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nayana Travel Agency Homepage</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css"
-        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/theme.css" />
     <!-- Fontawesome 6 icons -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
     <script>
@@ -25,7 +23,7 @@
                 url(/images/index_header.jpg);
             background-position: center;
             background-repeat: no-repeat;
-            background-attachment: scroll;
+            background-attachment: fixed;
             background-size: cover;
         }
 
@@ -106,8 +104,13 @@
                         Explore the beauty of Sri Lanka with Nayana Travel Agency, your one-stop travel agency for all
                         your travel needs.
                     </p>
-                    <a class="btn btn-primary btn-lg" href="#cont">
-                        TRAVEL
+                    <a class="btn btn-secondary btn-lg" href="#cont">
+                        <span class="fas fa-regular fa-angles-down fa-bounce"></span>
+                        Scroll Down
+                    </a>
+                    <a class="btn btn-outline-light btn-lg" href="/explore">
+                        <span class="fas fa-regular fa-earth-americas" aria-hidden="true"></span>
+                        Explore
                     </a>
                 </div>
             </div>
@@ -123,10 +126,10 @@
             </div>
         </div>
         <div class="row mb-5">
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Hotel Bookings">
+                        class="card-img-top thumb" alt="Hotel Bookings">
                     <div class="card-body">
                         <h5 class="card-title">Hotel Bookings</h5>
                         <p class="card-text">Find the perfect hotel for your stay at a great price.</p>
@@ -135,10 +138,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Flight Bookings">
+                        class="card-img-top thumb" alt="Flight Bookings">
                     <div class="card-body">
                         <h5 class="card-title">Flight Bookings</h5>
                         <p class="card-text">Fly to your destination with ease and convenience.</p>
@@ -147,10 +150,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1599278340576-bff6a4c8f3a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Shuttle Service">
+                        class="card-img-top thumb" alt="Shuttle Service">
                     <div class="card-body">
                         <h5 class="card-title">Shuttle Service</h5>
                         <p class="card-text">Get to your hotel or destination with our reliable shuttle service.</p>
@@ -159,41 +162,39 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Message Service">
+                        class="card-img-top thumb" alt="Message Service">
                     <div class="card-body">
-                        <h5 class="card-title">Message Service</h5>
-                        <p class="card-text">Stay connected with your loved ones while on your trip using our message
-                            service.</p>
-                        <a href="/messaging" class="btn btn-primary"><i class="far fa-envelope me-2"></i>Learn
-                            More</a>
+                        <h5 class="card-title">AI Chat Service</h5>
+                        <p class="card-text">Our AI Based assistant is the easiest way to plan your custom trip.</p>
+                        <a href="/messaging" class="btn btn-primary"><i class="far fa-envelope me-2"></i>Chat
+                            Now</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Weather Service">
+                        class="card-img-top thumb" alt="Weather Service">
                     <div class="card-body">
                         <h5 class="card-title">Weather Service</h5>
                         <p class="card-text">Plan your day with our accurate and up-to-date weather service.</p>
-                        <a href="/weather" class="btn btn-primary"><i class="fas fa-sun me-2"></i>Learn
-                            More</a>
+                        <a href="/weather" class="btn btn-primary"><i class="fas fa-sun me-2"></i>Check Now</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 mb-3">
                 <div class="card shadow">
                     <img src="https://images.unsplash.com/photo-1489702932289-406b7782113c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"
-                        class="card-img-top" alt="Map Service">
+                        class="card-img-top thumb" alt="Map Service">
                     <div class="card-body">
                         <h5 class="card-title">Map Service</h5>
                         <p class="card-text">Explore your surroundings and never get lost with our easy-to-use map
                             service.</p>
-                        <a href="/map" class="btn btn-primary"><i class="fas fa-map-marker-alt me-2"></i>Learn More</a>
+                        <a href="/map" class="btn btn-primary"><i class="fas fa-map-marker-alt me-2"></i>Explore</a>
                     </div>
                 </div>
             </div>
@@ -216,7 +217,7 @@
                                     <!-- Additional required wrapper -->
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide text-center">
-                                            <img src="/images/packages/hill-country.jpg" loading="lazy" class="swiper-lazy"
+                                            <img src="/images/packages/hill-country.jpg" loading="lazy" class="swiper-lazy img-fluid thumb"
                                                 alt="Hill Country Explorer">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
@@ -228,7 +229,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide text-center">
-                                            <img src="/images/packages/cultural.jpg" loading="lazy" class="swiper-lazy"
+                                            <img src="/images/packages/cultural.jpg" loading="lazy" class="swiper-lazy img-fluid thumb"
                                                 alt="Cultural Triangle Tour">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
@@ -239,7 +240,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide text-center">
-                                            <img src="/images/packages/beach-getaway.jpeg" loading="lazy" class="swiper-lazy"
+                                            <img src="/images/packages/beach-getaway.jpeg" loading="lazy" class="swiper-lazy img-fluid thumb"
                                                 alt="Beach Getaway">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
@@ -250,7 +251,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide text-center">
-                                            <img src="/images/packages/wildlife.jpg" class="swiper-lazy" loading="lazy"
+                                            <img src="/images/packages/wildlife.jpg" class="swiper-lazy img-fluid thumb" loading="lazy"
                                                 alt="Wildlife Adventure">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
@@ -261,7 +262,7 @@
                                             </div>
                                         </div>
                                         <div class="swiper-slide text-center">
-                                            <img src="/images/packages/foodie.jpg" loading="lazy" class="swiper-lazy"
+                                            <img src="/images/packages/foodie.jpg" loading="lazy" class="swiper-lazy img-fluid thumb"
                                                 alt="Sri Lankan Foodie Tour">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
@@ -301,7 +302,7 @@
                                     <div class="swiper-wrapper">
                                         <div class="swiper-slide text-center">
                                             <img src="https://images.unsplash.com/photo-1579989197111-928f586796a3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
-                                                loading="lazy" class="swiper-lazy" alt="Galle">
+                                                loading="lazy" class="swiper-lazy img-fluid" alt="Galle">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
                                                 <h2>Galle</h2>
@@ -318,7 +319,7 @@
                                         </div>
                                         <div class="swiper-slide text-center">
                                             <img src="https://images.unsplash.com/photo-1546656495-fc838de15e5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
-                                                loading="lazy" class="swiper-lazy" alt="Colombo">
+                                                loading="lazy" class="swiper-lazy img-fluid" alt="Colombo">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
                                                 <h2>Colombo</h2>
@@ -335,7 +336,7 @@
                                         </div>
                                         <div class="swiper-slide text-center">
                                             <img src="https://images.unsplash.com/photo-1621393614326-2f9ed389ce02?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&h=400&q=80"
-                                                loading="lazy" class="swiper-lazy" alt="Anuradapura">
+                                                loading="lazy" class="swiper-lazy img-fluid" alt="Anuradapura">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="swiper-slide-caption mb-5">
                                                 <h2>Anuradapura</h2>

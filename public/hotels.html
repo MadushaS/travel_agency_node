@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Hotels - Nayana Travel Agency</title>
     <!-- Bootstrap 5 CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="/styles/theme.css">
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Custom CSS -->
     <style>
         #loader-div {
@@ -91,15 +92,20 @@
             margin-top: 20px;
         }
     </style>
-        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-        <script>
-            Weglot.initialize({
-                api_key: 'wg_d4e27959767375d41da670c79339b8551'
-            });
-        </script>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_d4e27959767375d41da670c79339b8551'
+        });
+    </script>
+    <style>
+        .full-height {
+            height: 100vh;
+        }
+    </style>
 </head>
 
-<body>
+<body class="d-flex flex-column full-height">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Nayana Travel Agency</a>
@@ -154,20 +160,26 @@
         </div>
     </nav>
 
-    <div class="container mt-5">
+    <main class="container mt-5 flex-shrink-0">
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h1 class="mb-4">Hotel Search</h1>
                 <form id="search-form">
-                    <div class="mb-3">
-                        <label for="search-input" class="form-label">Location</label>
-                        <input type="text" class="form-control" id="search-input" placeholder="Enter a location">
+                    <div class="input-group mb-3">
+                        <div class="input-group-text">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" class="form-control" id="search-input" placeholder="Enter a location"
+                            aria-describedby="search-icon">
                         <div id="autocompleteDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
+                        <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
                     </div>
-                    <button type="button" class="btn btn-primary" id="searchButton">Search</button>
                 </form>
-                <div class="container"></div>
-                <div class="row" id="hotels-container"></div>
+                <div class="container my-5">
+                    <div class="row" id="hotels-container">
+                        <p class="alert alert-info">Search for Hotels</p>
+                    </div>
+                </div>
                 <div id="loader" class="text-center d-none">
                     <div class="spinner-border" role="status">
                         <span class="visually-hidden">Loading...</span>
@@ -178,9 +190,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <footer class="bg-light py-3 mt-3">
+    <footer class="bg-light mt-auto py-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">

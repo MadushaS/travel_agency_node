@@ -31,7 +31,7 @@ async function getHotelsData() {
         <div class="col-md-4 mb-4">
             <div class="card">
             <img src="${hotel.photo.images.medium.url}" width="${hotel.photo.images.medium.width
-                    }" class="card-img-top" alt="${hotel.name}">
+                    }" class="card-img-top thumb" loading="lazy" alt="${hotel.name}">
                 <div class="card-body">
                     <h5 class="card-title">${hotel.name}</h5>
                     <p class="card-text">${hotel.location_string}</p>
@@ -47,7 +47,10 @@ async function getHotelsData() {
                     </div>
                     <div class="btn-group">
                     <a href="/hotels/book?name=${hotel.name}" class="btn btn-primary">Book now</a>
-                    <a href="/map?lat=${hotel.latitude}&long=${hotel.longitude}" class="btn btn-secondary">View on map</a>
+                    <a href="/map?lat=${hotel.latitude}&long=${hotel.longitude}" class="btn btn-secondary">
+                        <i class="fa-regular fa-location-dot"></i>
+                        View on map
+                    </a>
                     </div>
                 </div>
             </div>
@@ -106,6 +109,3 @@ function handleSeeMoreClick() {
 // Add event listeners to search form and see more button
 searchForm.addEventListener("submit", handleFormSubmit);
 //seeMoreBtn.addEventListener("click", handleSeeMoreClick);
-
-// Get hotels data with default search parameters when page loads
-getHotelsData();
