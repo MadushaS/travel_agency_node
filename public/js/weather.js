@@ -68,7 +68,7 @@ function weatherReport(data) {
     widget.title.innerText = current.name;
     widget.temperature.innerText = Math.floor(current.main.temp - 273) + '°C';
     widget.description.innerText = current.weather[0].description;
-    widget.icon.src = `http://openweathermap.org/img/wn/${current.weather[0].icon}.png`;
+    widget.icon.src = `http://openweathermap.org/img/wn/${current.weather[0].icon}@4x.png`;
     widget.feelsLike.innerText = Math.floor(current.main.feels_like - 273) + '°C';
     widget.humidity.innerText = current.main.humidity + '%';
     widget.wind.innerText = current.wind.speed + 'm/s';
@@ -86,7 +86,7 @@ function hourForecast(data) {
     data.forecast.list && data.forecast.list.forEach((hour) => {
         const time = new Date(hour.dt * 1000).toLocaleTimeString().replace(":00 ", "");
         const temp = Math.floor(hour.main.temp - 273) + '°C';
-        const icon = `http://openweathermap.org/img/wn/${hour.weather[0].icon}.png`;
+        const icon = `http://openweathermap.org/img/wn/${hour.weather[0].icon}@4x.png`;
         const description = hour.weather[0].description;
 
         const hourlyCard = createhourlyCard(time, temp, icon, description);
