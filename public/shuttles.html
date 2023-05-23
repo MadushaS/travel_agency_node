@@ -8,7 +8,12 @@
     <title>Shuttles - Nayana Travel Agency</title>
     <!-- Bootstrap 5 CSS -->
     <link rel="stylesheet" href="/styles/theme.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjmzB7fsk_CtCz4lZdLhyt3j4R6kSZyWI&libraries=places"></script>
     <!-- Custom CSS -->
@@ -82,12 +87,12 @@
             width: 100px;
         }
     </style>
-        <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
-        <script>
-            Weglot.initialize({
-                api_key: 'wg_d4e27959767375d41da670c79339b8551'
-            });
-        </script>
+    <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+    <script>
+        Weglot.initialize({
+            api_key: 'wg_d4e27959767375d41da670c79339b8551'
+        });
+    </script>
 </head>
 
 <body>
@@ -192,16 +197,17 @@
                                 Select a preffered Service
                             </label><br>
                             <div class="brand-selector text-center">
-                                <input id="uber" type="radio" name="brand" value="uber"data-price="40" />
+                                <input id="uber" type="radio" name="brand" value="uber" data-price="40" />
                                 <label class="brand" for="uber">
                                     <img src="https://assets.website-files.com/5ee732bebd9839b494ff27cd/5ef0d5158e94c8cf501f5ea3_Uber_logo_2018-p-500.png"
                                         class="image-w-60" alt="Uber">
                                 </label>
-                                <input checked="checked" id="nayana" type="radio" name="brand" value="nayana" data-price="36"/>
+                                <input checked="checked" id="nayana" type="radio" name="brand" value="nayana"
+                                    data-price="36" />
                                 <label class="brand" for="nayana">
                                     <img src="/images/nayana-shuttle.png" class="image-w-60" alt="Nayana">
                                 </label>
-                                <input id="pickme" type="radio" name="brand" value="pickme" data-price="40"/>
+                                <input id="pickme" type="radio" name="brand" value="pickme" data-price="40" />
                                 <label class="brand" for="pickme">
                                     <img src="https://th.bing.com/th/id/R.4050998e70ddbca7c8c176090aabcf3d?rik=uAvN3dNVDjOCyQ&pid=ImgRaw&r=0"
                                         class="image-w-60" alt="Nayana">
@@ -214,17 +220,20 @@
                         <div class="col-12 mb-3 mb-sm-0">
                             <label class="form-label">Select Vehicle Type</label><br>
                             <div class="transport-mode-selector text-center">
-                                <input id="car" type="radio" name="mode" value="car" required/>
+                                <input id="car" type="radio" name="mode" value="car" required />
                                 <label class="vehicle-type" for="car">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/5290/5290207.png" alt="car" class="image-w-60">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/5290/5290207.png" alt="car"
+                                        class="image-w-60">
                                 </label>
-                                <input checked="checked" id="van" type="radio" name="mode" value="van" required/>
+                                <input checked="checked" id="van" type="radio" name="mode" value="van" required />
                                 <label class="vehicle-type" for="van">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/5120/5120167.png" alt="car" class="image-w-60">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/5120/5120167.png" alt="car"
+                                        class="image-w-60">
                                 </label>
-                                <input id="bike" type="radio" name="mode" value="bike" required/>
+                                <input id="bike" type="radio" name="mode" value="bike" required />
                                 <label class="vehicle-type" for="bike">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/1227/1227030.png" alt="car" class="image-w-60">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/1227/1227030.png" alt="car"
+                                        class="image-w-60">
                                 </label>
                             </div>
                         </div>
@@ -232,11 +241,13 @@
                     <div class="row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Enter first name" required>
+                            <input type="text" class="form-control" id="firstName" name="firstName"
+                                placeholder="Enter first name" required>
                         </div>
                         <div class="col-sm-6">
                             <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" name="LastName" placeholder="Enter last name" required>
+                            <input type="text" class="form-control" id="lastName" name="LastName"
+                                placeholder="Enter last name" required>
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -348,8 +359,8 @@
     <script>
         let directionsService;
         let directionsRenderer;
-        let pricefactor=parseFloat(document.getElementById("nayana").dataset.price);
-        let isDiscounted=true;
+        let pricefactor = parseFloat(document.getElementById("nayana").dataset.price);
+        let isDiscounted = true;
         // Initialize and center the map
         function initMap() {
             console.log("initMap");
@@ -401,7 +412,7 @@
                         document.getElementById("distance").innerHTML = `
                         <strong>${distance}</strong> km - ${duration}
                         <p>
-                            <strong>Price: </strong> ${Math.ceil(pricefactor * distance)}/= LKR ${  isDiscounted ? `<span class="text-success">-10% applied</span>` : ""}
+                            <strong>Price: </strong> ${Math.ceil(pricefactor * distance)}/= LKR ${isDiscounted ? `<span class="text-success">-10% applied</span>` : ""}
                         </p>`;
                     } else {
                         alert("Could not calculate distance due to: " + status);
@@ -418,7 +429,7 @@
 
         document.querySelectorAll("input[name=brand]").forEach((radio) => {
             radio.addEventListener("change", function (e) {
-                pricefactor=parseFloat(e.target.dataset.price);
+                pricefactor = parseFloat(e.target.dataset.price);
                 if (e.target.value === "nayana") {
                     document.getElementById("nayana-discount").classList.remove("d-none");
                     isDiscounted = true;
@@ -453,7 +464,7 @@
             radio.addEventListener("change", function (e) {
                 if (e.target.value === "car") {
                     document.getElementById("passengers").max = 4;
-                } else if(e.target.value === "van") {
+                } else if (e.target.value === "van") {
                     document.getElementById("passengers").max = 10;
                 }
                 updateDistance();

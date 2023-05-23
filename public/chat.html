@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Messeging - Nayana Travel Agency</title>
     <link rel="stylesheet" href="/styles/theme.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <!-- Fontawesome 6 icons -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
         referrerpolicy="no-referrer" />
@@ -89,6 +92,7 @@
             height: 1.5rem;
             filter: invert(100%) grayscale(1);
         }
+
         .prompt-suggestions {
             cursor: pointer;
             padding: 0.5rem 1rem;
@@ -96,6 +100,7 @@
             background-color: #ffffff;
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
         }
+
         .prompt-suggestions:hover {
             background-color: #f8f9fa;
             transform: scale(1.01);
@@ -182,7 +187,8 @@
                                             <h5 class="card-title">Suggestions</h5>
                                             <div class="row">
                                                 <div class="col-md-6 mb-2">
-                                                    <div class="bg-secondary card rounded-3 text-white prompt-suggestions">
+                                                    <div
+                                                        class="bg-secondary card rounded-3 text-white prompt-suggestions">
                                                         <div class="card-body">
                                                             <h5 class="card-title">Plan me a 3 day trip to Nuwara Eliya
                                                             </h5>
@@ -190,7 +196,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-2">
-                                                    <div class="bg-secondary card rounded-3 text-white prompt-suggestions">
+                                                    <div
+                                                        class="bg-secondary card rounded-3 text-white prompt-suggestions">
                                                         <div class="card-body">
                                                             <h5 class="card-title">What are the best locations to visit
                                                                 in Sri Lanka?</h5>
@@ -271,7 +278,7 @@
             chatContainer.appendChild(chatBubble);
             chatContainer.scrollTop = chatContainer.scrollHeight;
 
-            return(chatMsg);
+            return (chatMsg);
         }
 
         chatForm.addEventListener("submit", function (event) {
