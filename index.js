@@ -12,11 +12,11 @@ db.once('open', _ => {
   console.log('Database connected:', 'airline-cluster')
 });
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 const port = process.env.PORT || 3000;
 
 const pageRoutes = require('./routes/page_routes.js');
 const destinationRoutes = require('./routes/destination_routes.js');
+const dashboardRoutes = require('./routes/dashboard_routes.js');
 
 const airportController = require('./Controller/airportController');
 const contactFormController = require('./Controller/contactFormController');
@@ -40,35 +40,51 @@ const auth_config = {
 
 const app = express();
 
-app.use(cors());
+corsConfig={
+  origin: ['http://localhost:3000', 'https://nayana.onrender.com/']
+};
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(auth(auth_config));
 
 app.use(pageRoutes);
+app.use(dashboardRoutes);
 app.use(destinationRoutes);
 
+// Contact form submission
 app.post('/api/contact', contactFormController.contactFormSubmit);
 
-app.get('/api/flight/airports/:country', airportController.getAirportsByCountry)
+// Get airports
+app.get('/api/flight/airports/:country',cors(corsConfig), airportController.getAirportsByCountry)
 
-app.post('/api/flight/schedules', scheduleController.searchSchedule);
+// Search schedules
+app.post('/api/flight/schedules',cors(corsConfig), scheduleController.searchSchedule);
 
-app.post('/api/flight/reservations', flightReservationController.confirmReservation);
+// Confirm flight reservation
+app.post('/api/flight/reservations',cors(corsConfig), flightReservationController.confirmReservation);
 
-app.get('/api/flight/route/image', flightRouteController.getflightRouteMap);
+// Get flight route map
+app.get('/api/flight/route/image',cors(corsConfig), flightRouteController.getflightRouteMap);
 
-app.get('/api/hotels/:city', hotelController.getHotels);
+// Get hotels
+app.get('/api/hotels/:city',cors(corsConfig), hotelController.getHotels);
 
-app.post('/api/hotels/book', hotelController.bookHotel);
+// Book a hotel
+app.post('/api/hotels/book',cors(corsConfig), hotelController.bookHotel);
 
-app.get('/api/weather/:city', weatherController.getWeatherByCity);
-app.get('/api/weather/:lat/:lon', weatherController.getWeatherByCoordinates);
+// Get weather by city
+app.get('/api/weather/:city',cors(corsConfig), weatherController.getWeatherByCity);
 
-app.post('/api/chat', chatController.chat);
+// Get weather by coordinates
+app.get('/api/weather/:lat/:lon',cors(corsConfig), weatherController.getWeatherByCoordinates);
 
-app.post('/api/shuttle/bookings', shuttleController.confirmReservation);
+// Chat
+app.post('/api/chat',cors(corsConfig), chatController.chat);
+
+// Confirm shuttle reservation
+app.post('/api/shuttle/bookings',cors(corsConfig), shuttleController.confirmReservation);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}.`);

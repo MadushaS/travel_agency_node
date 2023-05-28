@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Marketplace - Nayana Travel Agency</title>
+    <link rel="stylesheet" href="/styles/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_d4e27959767375d41da670c79339b8551'
+    });
+</script>
+<style>
+    .h-max-50 {
+        max-height: 50vh;
+    }
+
+    .category-section {
+        padding: 60px 0;
+    }
+
+    .image-hover {
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-hover:hover {
+        transform: translateY(-5px);
+    }    
+
+    .category-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .category-title {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/explore">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/marketplace">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="bg-body-secondary">
+        
+        <div class="product-search pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="display">Find what you need</h2>
+                    </div>
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="button-addon1"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control form-control-lg" placeholder="Search for a product"
+                                aria-label="Search for a product" aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary btn-lg" type="button"
+                                id="button-addon2">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-5 px-5">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-3">
+                    <div class="container">
+                        <div class="row">
+                            <h2 class="display">Featured shops</h2>
+                            <div class="container">
+                                <p>
+                                    Best of the best. <br>
+                                    Find the best shops in the island.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12  col-lg-9 overflow-hidden">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="card mb-4">
+                                    <img src="https://images.unsplash.com/photo-1546213290-e1b492ab3eee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                        class="card-img-top thumb h-max-50" alt="SHOP 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Souviner Shop</h5>
+                                        <p class="card-text">All you get is soued.</p>
+                                        <a href="#" class="btn btn-primary">Shop now</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="card mb-4">
+                                    <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
+                                        class="card-img-top thumb h-max-50" alt="SHOP 1">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-white"><b>Souviner Shop</b></h5>
+                                        <p class="card-text text-white">All you get is soued.</p>
+                                        <a href="#" class="btn btn-primary">Shop Now</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination position-relative"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid pt-5 pb-3 bg-body shadow">
+            <div class="row px-xl-5 text-center">
+                <div class="col-md-4">
+                    <div class="product-offer mb-30 h-max-50">
+                        <img class="img-fluid rounded-5 shadow thumb"
+                            src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="">
+                        <div class="offer-text p-2">
+                            <h6 class="text-success-emphasis text-uppercase">Save 20%</h6>
+                            <h3 class="text-success-emphasis mb-3">Special Offer</h3>
+                            <a href="" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-offer mb-30">
+                        <img class="img-fluid rounded-5 shadow thumb"
+                            src="https://images.unsplash.com/photo-1448582649076-3981753123b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="">
+                        <div class="offer-text p-2">
+                            <h6 class="text-success-emphasis text-uppercase">Save 35%</h6>
+                            <h3 class="text-success-emphasis mb-3">Special Offer</h3>
+                            <a href="" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="product-offer mb-30 h-max-50">
+                        <img class="img-fluid rounded-5 shadow thumb"
+                            src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                            alt="">
+                        <div class="offer-text p-2">
+                            <h6 class="text-success-emphasis text-uppercase">Save 20%</h6>
+                            <h3 class="text-success-emphasis mb-3">Special Offer</h3>
+                            <a href="" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Start -->
+        <div class="container pt-5">
+            <div class="row px-xl-5 pb-3">
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4 p-3 shadow">
+                        <h1 class="fa fa-check text-primary m-0 mr-3 px-4"></h1>
+                        <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4 p-3 shadow">
+                        <h1 class="fa fa-shipping-fast text-primary m-0 mr-2 px-4"></h1>
+                        <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4 p-3 shadow">
+                        <h1 class="fas fa-exchange-alt text-primary m-0 mr-3 px-4"></h1>
+                        <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="d-flex align-items-center bg-light mb-4 p-3 shadow">
+                        <h1 class="fa fa-phone-volume text-primary m-0 mr-3 px-4"></h1>
+                        <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured End -->
+
+        <!-- Categories Start -->
+        <div class="catagory-section">
+            <div class="container-fluid ps-5">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="display">Categories</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container py-4">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Accommodation">
+                        </div>
+                        <h5 class="category-title">Accommodation</h5>
+                        <p>Hotels, resorts, guesthouses, homestays, and vacation rentals.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Tours and Activities">
+                        </div>
+                        <h5 class="category-title">Tours and Activities</h5>
+                        <p>Guided tours, city sightseeing, adventure activities (hiking, surfing, wildlife safaris), cultural experiences, boat trips, and water sports.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Transportation">
+                        </div>
+                        <h5 class="category-title">Transportation</h5>
+                        <p>Car rentals, airport transfers, private chauffeurs, and transportation services.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/4553365/pexels-photo-4553365.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Experiences">
+                        </div>
+                        <h5 class="category-title">Experiences</h5>
+                        <p>Cooking classes, wellness retreats, yoga and meditation retreats, traditional craft workshops, and local cultural experiences.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/4403902/pexels-photo-4403902.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wildlife and Nature">
+                        </div>
+                        <h5 class="category-title">Wildlife and Nature</h5>
+                        <p>National parks, wildlife sanctuaries, birdwatching tours, nature walks, and eco-tourism experiences.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Beaches and Coastal Activities">
+                        </div>
+                        <h5 class="category-title">Beaches and Coastal Activities</h5>
+                        <p>Beach resorts, water sports (snorkeling, diving, surfing), sailing trips, and coastal exploration.</p>
+                      </div> 
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.unsplash.com/photo-1613526949297-1aba25022d0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6003&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Food and Dining">
+                        </div>
+                        <h5 class="category-title">Food and Dining</h5>
+                        <p>Culinary tours, food tasting experiences, traditional Sri Lankan cuisine, street food walks, and cooking workshops.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.unsplash.com/photo-1580793241553-e9f1cce181af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Shopping and Souvenirs">
+                        </div>
+                        <h5 class="category-title">Shopping and Souvenirs</h5>
+                        <p>Local markets, handicraft shops, boutique stores, and opportunities to purchase traditional Sri Lankan handicrafts, spices, and souvenirs.</p>
+                      </div>
+                      <div class="col">
+                        <div class="image-hover">
+                          <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wellness and Spa">
+                        </div>
+                        <h5 class="category-title">Wellness and Spa</h5>
+                        <p>Ayurvedic retreats, wellness spas, yoga retreats, and rejuvenation therapies.</p>
+                      </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+        <!-- Categories End -->
+
+        <div class="pupular-product-cards">
+
+        </div>
+
+
+
+    </main>
+
+    <footer class="bg-light py-3 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <script>
+        new Swiper(".swiper-container", {
+            direction: "horizontal",
+            slidesPerView: 1,
+            spaceBetween: 30,
+            mousewheel: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            loop: true,
+        });
+    </script>
+
+</body>
+
+</html>
