@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Search | Marketplace - Nayana Travel Agency</title>
+  <link rel="stylesheet" href="/styles/theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <!-- Fontawesome 6 icons -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+</head>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+  Weglot.initialize({
+    api_key: 'wg_d4e27959767375d41da670c79339b8551'
+  });
+</script>
+<style>
+  .h-max-50 {
+    max-height: 50vh;
+  }
+
+  .category-section {
+    padding: 60px 0;
+  }
+
+  .image-hover {
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .image-hover:hover {
+    transform: translateY(-5px);
+  }
+
+  .category-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  .category-title {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+</style>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Services
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li class="nav-item">
+                <a class="nav-link" href="/flights">Flights</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/hotels">Hotels</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/shuttles">Shuttles</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/map">Map</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/weather">Weather</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/messaging">Messaging</a>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/explore">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/marketplace">Marketplace</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/reviews">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="bg-body-secondary">
+      <div class="container py-5">
+        <h2 class="mb-4">Add New Product</h2>
+        <form>
+          <div class="mb-3">
+            <label for="product-name" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="product-name" placeholder="Enter product name" required>
+          </div>
+          <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select class="form-select" id="category" onchange="updateFormProperties()">
+              <option value="accommodation">Accommodation</option>
+              <option value="tours">Tours and Activities</option>
+              <option value="transportation">Transportation</option>
+              <option value="experiences">Experiences</option>
+              <option value="wildlife">Wildlife and Nature</option>
+              <option value="beaches">Beaches and Coastal Activities</option>
+              <option value="historical">Historical and Cultural Sites</option>
+              <option value="food">Food and Dining</option>
+              <option value="shopping">Shopping and Souvenirs</option>
+              <option value="wellness">Wellness and Spa</option>
+            </select>
+          </div>
+
+          <div id="additional-properties"></div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </section>
+
+
+  </main>
+
+  <footer class="bg-light py-3 mt-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
+        </div>
+        <div class="col-md-6">
+          <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function updateFormProperties() {
+      var category = document.getElementById("category").value;
+      var additionalPropertiesDiv = document.getElementById("additional-properties");
+
+      // Clear existing form properties
+      additionalPropertiesDiv.innerHTML = "";
+
+      function createTextInput(parentDiv, label, id, placeholder, required) {
+        const div = document.createElement('div');
+        div.className = 'mb-3';
+
+        const inputLabel = document.createElement('label');
+        inputLabel.setAttribute('for', id);
+        inputLabel.className = 'form-label';
+        inputLabel.textContent = label;
+
+        const input = document.createElement('input');
+        input.setAttribute('type', 'text');
+        input.setAttribute('id', id);
+        input.className = 'form-control';
+        input.setAttribute('placeholder', placeholder);
+        if (required) {
+          input.setAttribute('required', 'required');
+        }
+
+        div.appendChild(inputLabel);
+        div.appendChild(input);
+
+        return div;
+      }
+
+      // Generate and insert form properties based on selected category
+      if (category === "accommodation") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="property-type" class="form-label">Type</label>
+        <select id="property-type" class="form-select">
+          <option value="hotel">Hotel</option>
+          <option value="resort">Resort</option>
+          <option value="guesthouse">Guesthouse</option>
+          <option value="homestay">Homestay</option>
+          <option value="vacation-rental">Vacation Rental</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-location" class="form-label">Location</label>
+        <input type="text" id="property-location" class="form-control" placeholder="Enter property location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-address" class="form-label">Address</label>
+        <input type="text" id="property-address" class="form-control" placeholder="Enter property address" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-phone" class="form-label">Phone</label>
+        <input type="tel" id="property-phone" class="form-control" placeholder="Enter property phone number" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-website" class="form-label">Website</label>
+        <input type="url" id="property-website" class="form-control" placeholder="Enter property website URL" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-description" class="form-label">Description</label>
+        <textarea id="property-description" class="form-control" placeholder="Enter property description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-price" class="form-label">Price per Night</label>
+        <input type="number" id="property-price" class="form-control" placeholder="Enter price per night" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-rating" class="form-label">Rating</label>
+        <input type="number" id="property-rating" class="form-control" placeholder="Enter property rating" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-amenities" class="form-label">Amenities</label>
+        <input type="text" id="property-amenities" class="form-control"
+          placeholder="Enter property amenities (comma-separated)" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="property-image" class="form-label">Image</label>
+        <input type="file" id="property-image" class="form-control" required>
+      </div>
+                `;
+      } else if (category === "tours") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="activity-type" class="form-label">Type</label>
+        <select id="activity-type" class="form-select">
+          <option value="guided-tour">Guided Tour</option>
+          <option value="sightseeing">City Sightseeing</option>
+          <option value="adventure">Adventure Activities</option>
+          <option value="cultural">Cultural Experiences</option>
+          <option value="boat-trip">Boat Trips</option>
+          <option value="water-sports">Water Sports</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="activity-location" class="form-label">Location</label>
+        <input type="text" id="activity-location" class="form-control" placeholder="Enter activity location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="activity-description" class="form-label">Description</label>
+        <textarea id="activity-description" class="form-control" placeholder="Enter activity description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="activity-price" class="form-label">Price</label>
+        <input type="number" id="activity-price" class="form-control" placeholder="Enter price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="activity-duration" class="form-label">Duration</label>
+        <input type="text" id="activity-duration" class="form-control" placeholder="Enter activity duration" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="activity-image" class="form-label">Image</label>
+        <input type="file" id="activity-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Inclusions</label>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="inclusion-1">
+          <label class="form-check-label" for="inclusion-1">Transportation</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="inclusion-2">
+          <label class="form-check-label" for="inclusion-2">Meals</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="inclusion-3">
+          <label class="form-check-label" for="inclusion-3">Guide</label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="inclusion-4">
+          <label class="form-check-label" for="inclusion-4">Equipment</label>
+        </div>
+      </div>
+                `;
+      } else if (category === "transportation") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="vehicle-type" class="form-label">Vehicle Type</label>
+        <select id="vehicle-type" class="form-select" required>
+          <option value="car">Car</option>
+          <option value="bus">Bus</option>
+          <option value="van">Van</option>
+          <option value="motorcycle">Motorcycle</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-model" class="form-label">Vehicle Model</label>
+        <input type="text" id="vehicle-model" class="form-control" placeholder="Enter vehicle model" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-year" class="form-label">Year</label>
+        <input type="text" id="vehicle-year" class="form-control" placeholder="Enter vehicle year" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-color" class="form-label">Color</label>
+        <input type="text" id="vehicle-color" class="form-control" placeholder="Enter vehicle color" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-price" class="form-label">Price per Day</label>
+        <input type="number" id="vehicle-price" class="form-control" placeholder="Enter price per day" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-location" class="form-label">Location</label>
+        <input type="text" id="vehicle-location" class="form-control" placeholder="Enter vehicle location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="vehicle-image" class="form-label">Image</label>
+        <input type="file" id="vehicle-image" class="form-control" required>
+      </div>
+                `;
+      } else if (category === "experiences") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="experience-type" class="form-label">Experience Type</label>
+        <select id="experience-type" class="form-select" required>
+          <option value="">Select Experience Type</option>
+          <option value="guided-tour">Guided Tour</option>
+          <option value="adventure">Adventure Activity</option>
+          <option value="cultural">Cultural Experience</option>
+          <option value="cooking-class">Cooking Class</option>
+          <option value="wellness-retreat">Wellness Retreat</option>
+          <option value="photography-tour">Photography Tour</option>
+          <option value="wildlife-safari">Wildlife Safari</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-description" class="form-label">Description</label>
+        <textarea id="experience-description" class="form-control" rows="4" placeholder="Enter experience description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-location" class="form-label">Location</label>
+        <input type="text" id="experience-location" class="form-control" placeholder="Enter experience location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-price" class="form-label">Price per Person</label>
+        <input type="number" id="experience-price" class="form-control" placeholder="Enter price per person" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-duration" class="form-label">Duration (in hours)</label>
+        <input type="number" id="experience-duration" class="form-control" placeholder="Enter experience duration" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-image" class="form-label">Image</label>
+        <input type="file" id="experience-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-inclusions" class="form-label">Inclusions</label>
+        <textarea id="experience-inclusions" class="form-control" rows="4" placeholder="Enter experience inclusions"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-exclusions" class="form-label">Exclusions</label>
+        <textarea id="experience-exclusions" class="form-control" rows="4" placeholder="Enter experience exclusions"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="experience-requirements" class="form-label">Requirements</label>
+        <textarea id="experience-requirements" class="form-control" rows="4" placeholder="Enter experience requirements"></textarea>
+      </div>
+                `;
+      } else if (category === "wildlife") {
+        additionalPropertiesDiv.innerHTML += `
+      <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-location" class="form-label">Location</label>
+        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-duration" class="form-label">Duration (in days)</label>
+        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-activities" class="form-label">Activities</label>
+        <textarea id="product-activities" class="form-control" rows="4" placeholder="Enter product activities" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-transportation" class="form-label">Transportation</label>
+        <textarea id="product-transportation" class="form-control" rows="4" placeholder="Enter transportation details"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-guides" class="form-label">Guides</label>
+        <textarea id="product-guides" class="form-control" rows="4" placeholder="Enter guide details"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-equipment" class="form-label">Equipment</label>
+        <textarea id="product-equipment" class="form-control" rows="4" placeholder="Enter equipment details"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-inclusions" class="form-label">Inclusions</label>
+        <textarea id="product-inclusions" class="form-control" rows="4" placeholder="Enter product inclusions"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-exclusions" class="form-label">Exclusions</label>
+        <textarea id="product-exclusions" class="form-control" rows="4" placeholder="Enter product exclusions"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-requirements" class="form-label">Requirements</label>
+        <textarea id="product-requirements" class="form-control" rows="4" placeholder="Enter product requirements"></textarea>
+      </div>
+                `;
+      } else if (category === "beaches") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-location" class="form-label">Location</label>
+        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-duration" class="form-label">Duration (in hours)</label>
+        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-activities" class="form-label">Activities</label>
+        <textarea id="product-activities" class="form-control" rows="4" placeholder="Enter beach and coastal activities" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-water-sports" class="form-label">Water Sports</label>
+        <input type="text" id="product-water-sports" class="form-control" placeholder="Enter water sports available">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-sailing-trips" class="form-label">Sailing Trips</label>
+        <input type="text" id="product-sailing-trips" class="form-control" placeholder="Enter sailing trips offered">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-coastal-exploration" class="form-label">Coastal Exploration</label>
+        <input type="text" id="product-coastal-exploration" class="form-control" placeholder="Enter coastal exploration options">
+      </div>
+                `;
+      } else if (category === "historical") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-location" class="form-label">Location</label>
+        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-duration" class="form-label">Duration (in hours)</label>
+        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-heritage-sites" class="form-label">Heritage Sites</label>
+        <input type="text" id="product-heritage-sites" class="form-control" placeholder="Enter heritage sites included">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-temples" class="form-label">Ancient Temples</label>
+        <input type="text" id="product-temples" class="form-control" placeholder="Enter ancient temples visited">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-archaeological-sites" class="form-label">Archaeological Sites</label>
+        <input type="text" id="product-archaeological-sites" class="form-control" placeholder="Enter archaeological sites explored">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-cultural-performances" class="form-label">Cultural Performances</label>
+        <input type="text" id="product-cultural-performances" class="form-control" placeholder="Enter cultural performances included">
+      </div>
+                `;
+      } else if (category === "food") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-cuisine" class="form-label">Cuisine</label>
+        <input type="text" id="product-cuisine" class="form-control" placeholder="Enter product cuisine" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-dietary-restrictions" class="form-label">Dietary Restrictions</label>
+        <div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="vegetarian" value="Vegetarian">
+            <label class="form-check-label" for="vegetarian">Vegetarian</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="vegan" value="Vegan">
+            <label class="form-check-label" for="vegan">Vegan</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="gluten-free" value="Gluten-free">
+            <label class="form-check-label" for="gluten-free">Gluten-free</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-beverages" class="form-label">Beverages</label>
+        <input type="text" id="product-beverages" class="form-control" placeholder="Enter beverages served">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-availability" class="form-label">Availability</label>
+        <select id="product-availability" class="form-select" required>
+          <option value="">Select availability</option>
+          <option value="Daily">Daily</option>
+          <option value="Weekly">Weekly</option>
+          <option value="Monthly">Monthly</option>
+        </select>
+      </div>
+                `;
+      } else if (category === "shopping") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-material" class="form-label">Material</label>
+            <input type="text" id="product-material" class="form-control" placeholder="Enter product material" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-size" class="form-label">Size</label>
+            <input type="text" id="product-size" class="form-control" placeholder="Enter product size (optional)">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-color" class="form-label">Color</label>
+            <input type="text" id="product-color" class="form-control" placeholder="Enter product color (optional)">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-quantity" class="form-label">Quantity</label>
+            <input type="number" id="product-quantity" class="form-control" placeholder="Enter product quantity" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-weight" class="form-label">Weight (grams)</label>
+        <input type="number" id="product-weight" class="form-control" placeholder="Enter product weight (optional)">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-manufacturer" class="form-label">Manufacturer</label>
+        <input type="text" id="product-manufacturer" class="form-control" placeholder="Enter product manufacturer (optional)">
+      </div>
+
+      <div class="mb-3">
+        <label for="product-country" class="form-label">Country</label>
+        <select id="product-country" class="form-select" required>
+          <option value="">Select country</option>
+          <option value="usa">USA</option>
+          <option value="uk">UK</option>
+          <option value="france">France</option>
+          <option value="germany">Germany</option>
+          <!-- Add more countries as needed -->
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-tags" class="form-label">Tags</label>
+        <input type="text" id="product-tags" class="form-control" placeholder="Enter product tags (optional)">
+        <small class="form-text text-muted">Add comma-separated tags for better searchability.</small>
+      </div>
+                `;
+      } else if (category === "wellness") {
+        additionalPropertiesDiv.innerHTML += `
+                <div class="mb-3">
+        <label for="product-description" class="form-label">Description</label>
+        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-price" class="form-label">Price</label>
+        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-image" class="form-label">Image</label>
+        <input type="file" id="product-image" class="form-control" required>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-location" class="form-label">Location</label>
+            <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-duration" class="form-label">Duration</label>
+            <input type="text" id="product-duration" class="form-control" placeholder="Enter product duration" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-therapist" class="form-label">Therapist</label>
+            <input type="text" id="product-therapist" class="form-control" placeholder="Enter product therapist" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="product-booking-link" class="form-label">Booking Link</label>
+            <input type="url" id="product-booking-link" class="form-control" placeholder="Enter booking link" required>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-amenities" class="form-label">Amenities</label>
+        <textarea id="product-amenities" class="form-control" rows="4" placeholder="Enter product amenities" required></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="product-tags" class="form-label">Tags</label>
+        <input type="text" id="product-tags" class="form-control" placeholder="Enter product tags (optional)">
+        <small class="form-text text-muted">Add comma-separated tags for better searchability.</small>
+      </div>
+                `;
+      }
+    }
+  </script>
+
+</body>
+
+</html>

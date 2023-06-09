@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Search | Marketplace - Nayana Travel Agency</title>
+    <link rel="stylesheet" href="/styles/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_d4e27959767375d41da670c79339b8551'
+    });
+</script>
+<style>
+    .h-max-50 {
+        max-height: 50vh;
+    }
+
+    .category-section {
+        padding: 60px 0;
+    }
+
+    .image-hover {
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-hover:hover {
+        transform: translateY(-5px);
+    }
+
+    .category-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .category-title {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/explore">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/marketplace">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="bg-body-secondary">
+            <div class="product-search pt-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2 class="display">Find what you need</h2>
+                        </div>
+                        <div class="col-12">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="button-addon1"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control form-control-lg"
+                                    placeholder="Search for a product" aria-label="Search for a product"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary btn-lg" type="button"
+                                    id="button-addon2">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="loader" class="text-center d-none">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <div id="view" class="d-none">
+                <button class="btn btn-primary" id="see-more-btn">See More</button>
+            </div>
+        </section>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 bg-body-secondary p-4">
+                    <div class="sidebar">
+                        <button class="btn d-lg-none fst-italic mb-4 text-bg-dark" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false"
+                            aria-controls="filterCollapse">
+                            <span class="fas fa-regular fa-filter-list" aria-hidden="true"></span>
+                            Filter
+                        </button>
+                        <div class="collapse d-lg-block" id="filterCollapse">
+                            <!-- Filter options here -->
+                            <h5>Categories</h5>
+                            <div class="category-filter ps-3 py-4">
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="accommodation">
+                                    Accommodation</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="tours"> Tours and
+                                    Activities</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="transportation">
+                                    Transportation</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="experiences"> Experiences</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="wildlife"> Wildlife and
+                                    Nature</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="beaches"> Beaches and Coastal
+                                    Activities</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="historical"> Historical and
+                                    Cultural Sites</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="food"> Food and Dining</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="shopping"> Shopping and
+                                    Souvenirs</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="wellness"> Wellness and Spa</label>
+                            </div>
+                            <h5>Price Range</h5>
+                            <div class="price-filter ps-3 py-4">
+                                <label class="d-block"><input type="radio" name="price" class="form-check-input" value="0-100"> $</label>
+                                <label class="d-block"><input type="radio" name="price" class="form-check-input" value="100-200"> $$</label>
+                                <label class="d-block"><input type="radio" name="price" class="form-check-input" value="200-300"> $$$</label>
+                            </div>
+                            <h5>Location</h5>
+                            <div class="location-filter ps-3 py-4">
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="colombo"> Colombo</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="kandy"> Kandy</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="galle"> Galle</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="nuwaraeliya"> Nuwara Eliya</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="anuradhapura"> Anuradhapura</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="polonnaruwa"> Polonnaruwa</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="jaffna"> Jaffna</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="trincomalee"> Trincomalee</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="sigiriya"> Sigiriya</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="bentota"> Bentota</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="negombo"> Negombo</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="matara"> Matara</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="hikkaduwa"> Hikkaduwa</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="mirissa"> Mirissa</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="ella"> Ella</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="arugambay"> Arugambay</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="batticaloa"> Batticaloa</label>
+                                <!-- Add more cities here -->
+                            </div>
+                            <h5>Rating</h5>
+                            <div class="rating-filter ps-3 py-4">
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="5"> 5 Stars</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="4"> 4 Stars</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="3"> 3 Stars</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="2"> 2 Stars</label>
+                                <label class="d-block"><input type="checkbox" class="form-check-input" value="1"> 1 Star</label>
+                            </div>
+                            <h5>Sort By</h5>
+                            <div class="sort-filter ps-3 py-4">
+                                <label class="d-block"><input type="radio" class="form-check-input" name="sort" value="price"> Price</label>
+                                <label class="d-block"><input type="radio" class="form-check-input" name="sort" value="rating"> Rating</label>
+                                <label class="d-block"><input type="radio" class="form-check-input" name="sort" value="popularity"> Popularity</label>
+                            </div>
+                            <button class="btn btn-primary w-100">Apply Filters</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="container p-4">
+                        <div class="alert alert-info w-100">
+                            <p class="mb-0">Showing 1-10 of 100 results</p>
+                        </div>
+                        <!-- Products Start -->
+                        <div class="row px-xl-5">
+                            <div class="row px-xl-5">
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Luxury+Hotel" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Luxury Hotel</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$200.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Adventure+Tour" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Adventure Tour</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$150.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Local+Experience" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Local
+                                                Experience</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$50.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Beach+Resort" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Beach Resort</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$180.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Historical+Tour" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Historical Tour</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$120.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Wildlife+Safari" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Wildlife Safari</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$100.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                                    <div class="product-item bg-light mb-4">
+                                        <div class="product-img position-relative overflow-hidden">
+                                            <img class="img-fluid w-100"
+                                                src="https://placehold.co/600x400?text=Cultural+Tour" alt="">
+                                            <div class="mt-3 product-action text-center">
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-shopping-cart"></i></a>
+                                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                                        class="fa fa-search"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="text-center py-4">
+                                            <a class="h6 text-decoration-none text-truncate" href="">Cultural Tour</a>
+                                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                                <h5>$90.00</h5>
+                                                <h6 class="text-muted ml-2"><del>$0.00</del></h6>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small class="fa fa-star-half-alt text-primary mr-1"></small>
+                                                <small>(0)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Products End -->
+                        <nav class="text-center d-block mx-auto">
+                            <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                  <span aria-hidden="true">&laquo;</span>
+                                </a>
+                              </li>
+                              <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                  <span aria-hidden="true">&raquo;</span>
+                                </a>
+                              </li>
+                            </ul>
+                          </nav>                          
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-light py-3 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
