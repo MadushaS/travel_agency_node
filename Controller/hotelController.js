@@ -13,9 +13,9 @@ const { travelAdvisorURL, travelAdvisorHost, travelAdvisorKey } = config;
 
 
 exports.getHotels = async (req, res) => {
-    const { city } = req.params;
+const { location, rating, showRestaurants } = req.params;
 
-    const response = await getHotelsByName(city);
+    const response = await getHotelsByName({ location, rating, showRestaurants });
     const data = response;
     try {
         if (data) {
@@ -32,11 +32,11 @@ exports.getHotels = async (req, res) => {
 
 exports.getHotelDetails = async (req, res) => {
     const { name } = req.query;
-    const response = await getHotelsByName(name);
+
+    const response = await getHotelsByName({ location: name, rating: null, showRestaurants: null });
     const data = response[0];
 
     if (data) {
-
         const hotel = {
             hotel_name: data.result_object.name,
             hotel_location: data.result_object.address,
@@ -55,10 +55,12 @@ exports.getHotelDetails = async (req, res) => {
 
 };
 
-async function getHotelsByName(city) {
+async function getHotelsByName(filters) {
+    const { location, rating, showRestaurants } = filters;
+    console.log(filters);
 
     try {
-        const { data } = await axios.get(`${travelAdvisorURL}locations/search?lang=en_US&limit=100&query=${city}`, {
+        const { data } = await axios.get(`${travelAdvisorURL}locations/search?lang=en_US&limit=100&query=${location}`, {
             headers: {
                 'x-rapidapi-host': travelAdvisorHost,
                 'x-rapidapi-key': travelAdvisorKey
@@ -66,11 +68,25 @@ async function getHotelsByName(city) {
         });
 
         const result = data.data;
+
         const locations = [];
-        const hotelList = result.filter(item => item.result_type === 'lodging');
+        let hotelList = result.filter(item => item.result_object.timezone === 'Asia/Colombo');
+        console.log(hotelList);
+
+        hotelList = hotelList.filter(item => item.result_type === 'lodging' || (showRestaurants === '1') ? item.result_type === 'lodging' : false);
+
+        if (location) {
+            hotelList = hotelList.filter(item => item.result_object.name.toLowerCase().includes(location.toLowerCase()) || (item.result_object.address_obj.location_string && item.result_object.address_obj.location_string.toLowerCase().includes(location.toLowerCase())));
+        }
+
+        if (rating) {
+            hotelList = hotelList.filter(item => item.result_object.rating >= rating);
+        }
+
         hotelList.forEach(item => {
             locations.push([`${item.result_object.name}<br><a href="detail.html?id=${item.result_object.location_id}">Book Hotel</a>`, item.result_object.latitude, item.result_object.longitude]);
         });
+
         return hotelList;
 
     } catch (error) {

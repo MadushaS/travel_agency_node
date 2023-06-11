@@ -10,6 +10,8 @@ const seeMoreBtn = document.querySelector("#see-more-btn");
 // Define default search parameters
 let searchParams = {
     area: "sri lanka",
+    rating: 0,
+    restaurant: false,
 };
 
 // Function to get hotels data from API
@@ -19,7 +21,7 @@ async function getHotelsData() {
         '<div class="text-center my-5"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>';
     try {
         // Make API request with search parameters
-        const { data } = await axios.get(`${apiEndpoint}${searchParams.area}`);
+        const { data } = await axios.get(`${apiEndpoint}${searchParams.area}/${searchParams.restaurant}/${searchParams.rating}`);
         temp = data;
         // Check if data is returned
         if (data.length > 0) {
@@ -88,10 +90,13 @@ function handleFormSubmit(event) {
     // Get search input value
     const searchInput = document.querySelector("#search-input");
     const searchValue = searchInput.value;
+    const rating = document.querySelector("#rating").value;
+    const restaurant = document.querySelector("#restaurant").value;
 
     // Update search parameters with new area value
     searchParams.area = searchValue;
-    searchParams.page = 1;
+    searchParams.rating = rating;
+    searchParams.restaurant = restaurant;
 
     // Get hotels data with updated search parameters
     getHotelsData();

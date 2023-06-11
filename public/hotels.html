@@ -182,7 +182,29 @@
                         <input type="text" class="form-control" id="search-input" placeholder="Enter a location"
                             aria-describedby="search-icon">
                         <div id="autocompleteDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuButton"></div>
-                        <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <label for="restaurant" class="form-label">Include restaurants:</label>
+                            <select class="form-control form-select" id="restaurant">
+                                <option selected value="0">No</option>
+                                <option value="1">Yes</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="rating" class="form-label">Minimum Rating:</label>
+                            <select class="form-control form-select" id="rating">
+                                <option disabled selected value="0">Any</option>
+                                <option value="4">4+</option>
+                                <option value="3">3+</option>
+                                <option value="2">2+</option>
+                                <option value="1">1+</option>
+                            </select>
+                        </div>
+
+                        <div class="col-12 my-3">
+                            <button type="submit" class="btn btn-primary" id="searchButton">Search</button>
+                        </div>
                     </div>
                 </form>
                 <div class="container my-5">
@@ -201,6 +223,7 @@
             </div>
         </div>
     </main>
+
 
     <footer class="bg-light mt-auto py-3">
         <div class="container">

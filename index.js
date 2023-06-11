@@ -69,7 +69,7 @@ app.post('/api/flight/reservations',cors(corsConfig), flightReservationControlle
 app.get('/api/flight/route/image',cors(corsConfig), flightRouteController.getflightRouteMap);
 
 // Get hotels
-app.get('/api/hotels/:city',cors(corsConfig), hotelController.getHotels);
+app.get('/api/hotels/:location/:showRestaurants/:rating',cors(corsConfig), hotelController.getHotels);
 
 // Book a hotel
 app.post('/api/hotels/book',cors(corsConfig), hotelController.bookHotel);
