@@ -23,7 +23,7 @@ const auth_config = {
   authRequired: false,
   auth0Logout: true,
   secret: env.AUTH0_SECRET,
-  baseURL: 'http://localhost:3000',
+  baseURL: env.AUTH0_BASE_URL,
   clientID: env.AUTH0_CLIENT,
   issuerBaseURL: env.AUTH0_ISSUER
 };
