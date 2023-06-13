@@ -22,10 +22,13 @@ const apiRoutes = require('./routes/api_routes.js');
 const auth_config = {
   authRequired: false,
   auth0Logout: true,
+  logoutParams: {
+    federated: true,
+  },
   secret: env.AUTH0_SECRET,
   baseURL: env.AUTH0_BASE_URL,
   clientID: env.AUTH0_CLIENT,
-  issuerBaseURL: env.AUTH0_ISSUER
+  issuerBaseURL: env.AUTH0_ISSUER,
 };
 
 const app = express();
