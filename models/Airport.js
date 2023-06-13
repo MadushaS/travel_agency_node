@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const db = require('../db/db');
 
 // Define airport schema
 const airportSchema = new mongoose.Schema({
