@@ -124,8 +124,16 @@
             <input type="text" class="form-control" id="product-name" placeholder="Enter product name" required>
           </div>
           <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <select class="form-select" id="location" name="location">
+              <option disabled selected>--SELECT--</option>
+
+            </select>
+          </div>
+          <div class="mb-3">
             <label for="category" class="form-label">Category</label>
-            <select class="form-select" id="category" onchange="updateFormProperties()">
+            <select class="form-select" id="category" name="category" onchange="updateFormProperties()">
+              <option disabled selected>--SELECT--</option>
               <option value="accommodation">Accommodation</option>
               <option value="tours">Tours and Activities</option>
               <option value="transportation">Transportation</option>
@@ -137,6 +145,32 @@
               <option value="shopping">Shopping and Souvenirs</option>
               <option value="wellness">Wellness and Spa</option>
             </select>
+          </div>
+
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" id="price" placeholder="Enter price" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="discount" class="form-label">Discount</label>
+            <input type="number" class="form-control" id="discount" placeholder="Enter discount">
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea id="description" class="form-control" rows="4" placeholder="Enter description"
+              required></textarea>
+          </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" required>
           </div>
 
           <div id="additional-properties"></div>
@@ -167,6 +201,58 @@
     crossorigin="anonymous"></script>
 
   <script>
+    function generateFormElement(label, name, type, placeholder, required = false) {
+      return `
+                <div class="mb-3">
+                  <label for="${name}" class="form-label">${label}</label>
+                  <input type="${type}" id="${name}" name="${name}" class="${type == "checkbox" ? "form-check-input form-check-inline" : "form-control"}" placeholder="${placeholder}" ${required ? 'required' : ''}>
+                </div>
+              `;
+    }
+
+    function generateSelectElement(label, name, options) {
+      let optionsHTML = '';
+      for (let i = 0; i < options.length; i++) {
+        optionsHTML += `<option value="${options[i].value}">${options[i].label}</option>`;
+      }
+      return `
+                <div class="mb-3">
+                  <label for="${name}" class="form-label">${label}</label>
+                  <select id="${name}" name="${name}" class="form-select">
+                    ${optionsHTML}
+                  </select>
+                </div>
+              `;
+    }
+
+    function generateTextareaElement(label, name, placeholder, required = false) {
+      return `
+        <div class="mb-3">
+          <label for="${name}" class="form-label">${label}</label>
+          <textarea id="${name}" name="${name}" class="form-control" placeholder="${placeholder}" ${required ? 'required' : ''}></textarea>
+        </div>
+      `;
+    }
+
+    function generateCheckBoxes(label, name, required = false, checkboxes) {
+      let checkboxesHTML = '';
+      for (let i = 0; i < checkboxes.length; i++) {
+        checkboxesHTML += `
+            <div class="form-check">
+            <input type="checkbox" id="${checkboxes[i].value}" name="${name}" class="form-check-input form-check-inline" value="${checkboxes[i].value}">
+            <label class="form-check-label" for="${checkboxes[i].value}">${checkboxes[i].label}</label>
+          </div>
+            `;
+      }
+      return `
+          <div class="mb-3">
+            <label class="form-label">${label}</label>
+              ${checkboxesHTML}
+              </div>
+            `
+    }
+
+
     function updateFormProperties() {
       var category = document.getElementById("category").value;
       var additionalPropertiesDiv = document.getElementById("additional-properties");
@@ -174,593 +260,115 @@
       // Clear existing form properties
       additionalPropertiesDiv.innerHTML = "";
 
-      function createTextInput(parentDiv, label, id, placeholder, required) {
-        const div = document.createElement('div');
-        div.className = 'mb-3';
-
-        const inputLabel = document.createElement('label');
-        inputLabel.setAttribute('for', id);
-        inputLabel.className = 'form-label';
-        inputLabel.textContent = label;
-
-        const input = document.createElement('input');
-        input.setAttribute('type', 'text');
-        input.setAttribute('id', id);
-        input.className = 'form-control';
-        input.setAttribute('placeholder', placeholder);
-        if (required) {
-          input.setAttribute('required', 'required');
-        }
-
-        div.appendChild(inputLabel);
-        div.appendChild(input);
-
-        return div;
-      }
-
+      console.log(category);
       // Generate and insert form properties based on selected category
       if (category === "accommodation") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="property-type" class="form-label">Type</label>
-        <select id="property-type" class="form-select">
-          <option value="hotel">Hotel</option>
-          <option value="resort">Resort</option>
-          <option value="guesthouse">Guesthouse</option>
-          <option value="homestay">Homestay</option>
-          <option value="vacation-rental">Vacation Rental</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-location" class="form-label">Location</label>
-        <input type="text" id="property-location" class="form-control" placeholder="Enter property location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-address" class="form-label">Address</label>
-        <input type="text" id="property-address" class="form-control" placeholder="Enter property address" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-phone" class="form-label">Phone</label>
-        <input type="tel" id="property-phone" class="form-control" placeholder="Enter property phone number" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-website" class="form-label">Website</label>
-        <input type="url" id="property-website" class="form-control" placeholder="Enter property website URL" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-description" class="form-label">Description</label>
-        <textarea id="property-description" class="form-control" placeholder="Enter property description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-price" class="form-label">Price per Night</label>
-        <input type="number" id="property-price" class="form-control" placeholder="Enter price per night" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-rating" class="form-label">Rating</label>
-        <input type="number" id="property-rating" class="form-control" placeholder="Enter property rating" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-amenities" class="form-label">Amenities</label>
-        <input type="text" id="property-amenities" class="form-control"
-          placeholder="Enter property amenities (comma-separated)" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="property-image" class="form-label">Image</label>
-        <input type="file" id="property-image" class="form-control" required>
-      </div>
-                `;
+          ${generateFormElement("Amenities (comma-separated)", "hotel_amenities", "text", "Enter hotel amenities", true)}
+        `;
       } else if (category === "tours") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="activity-type" class="form-label">Type</label>
-        <select id="activity-type" class="form-select">
-          <option value="guided-tour">Guided Tour</option>
-          <option value="sightseeing">City Sightseeing</option>
-          <option value="adventure">Adventure Activities</option>
-          <option value="cultural">Cultural Experiences</option>
-          <option value="boat-trip">Boat Trips</option>
-          <option value="water-sports">Water Sports</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="activity-location" class="form-label">Location</label>
-        <input type="text" id="activity-location" class="form-control" placeholder="Enter activity location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="activity-description" class="form-label">Description</label>
-        <textarea id="activity-description" class="form-control" placeholder="Enter activity description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="activity-price" class="form-label">Price</label>
-        <input type="number" id="activity-price" class="form-control" placeholder="Enter price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="activity-duration" class="form-label">Duration</label>
-        <input type="text" id="activity-duration" class="form-control" placeholder="Enter activity duration" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="activity-image" class="form-label">Image</label>
-        <input type="file" id="activity-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Inclusions</label>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="inclusion-1">
-          <label class="form-check-label" for="inclusion-1">Transportation</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="inclusion-2">
-          <label class="form-check-label" for="inclusion-2">Meals</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="inclusion-3">
-          <label class="form-check-label" for="inclusion-3">Guide</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="inclusion-4">
-          <label class="form-check-label" for="inclusion-4">Equipment</label>
-        </div>
-      </div>
-                `;
+          ${generateFormElement("Duration", "tour_duration", "text", "Enter duration", true)}
+          ${generateFormElement("Includes", "tour_includes", "text", "Enter includes (comma-separated)", true)}
+          `;
       } else if (category === "transportation") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="vehicle-type" class="form-label">Vehicle Type</label>
-        <select id="vehicle-type" class="form-select" required>
-          <option value="car">Car</option>
-          <option value="bus">Bus</option>
-          <option value="van">Van</option>
-          <option value="motorcycle">Motorcycle</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-model" class="form-label">Vehicle Model</label>
-        <input type="text" id="vehicle-model" class="form-control" placeholder="Enter vehicle model" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-year" class="form-label">Year</label>
-        <input type="text" id="vehicle-year" class="form-control" placeholder="Enter vehicle year" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-color" class="form-label">Color</label>
-        <input type="text" id="vehicle-color" class="form-control" placeholder="Enter vehicle color" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-price" class="form-label">Price per Day</label>
-        <input type="number" id="vehicle-price" class="form-control" placeholder="Enter price per day" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-location" class="form-label">Location</label>
-        <input type="text" id="vehicle-location" class="form-control" placeholder="Enter vehicle location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="vehicle-image" class="form-label">Image</label>
-        <input type="file" id="vehicle-image" class="form-control" required>
-      </div>
-                `;
+          ${generateSelectElement("Vehicle Type", "vehicle_type", [
+          { label: "Car", value: "car" },
+          { label: "Bus", value: "bus" },
+          { label: "Van", value: "van" },
+          { label: "Motorcycle", value: "motorcycle" }
+        ])}
+          ${generateFormElement("Model", "vehicle_model", "text", "Enter model", true)}
+          ${generateFormElement("Year", "vehicle_year", "number", "Enter year", true)}
+          ${generateFormElement("Color", "vehicle_color", "text", "Enter color", true)}
+          ${generateFormElement("Luggage Capacity", "luggage_capacity", "number", "Enter luggage capacity", true)}
+          ${generateFormElement("Seats", "number", "seats", "Enter number of seats", true)}
+          ${generateFormElement("Transmission", "transmission", "text", "Enter transmission type", true)}
+          ${generateFormElement("Fuel Type", "fuel", "text", "Enter fuel type", true)}
+        `;
       } else if (category === "experiences") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="experience-type" class="form-label">Experience Type</label>
-        <select id="experience-type" class="form-select" required>
-          <option value="">Select Experience Type</option>
-          <option value="guided-tour">Guided Tour</option>
-          <option value="adventure">Adventure Activity</option>
-          <option value="cultural">Cultural Experience</option>
-          <option value="cooking-class">Cooking Class</option>
-          <option value="wellness-retreat">Wellness Retreat</option>
-          <option value="photography-tour">Photography Tour</option>
-          <option value="wildlife-safari">Wildlife Safari</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-description" class="form-label">Description</label>
-        <textarea id="experience-description" class="form-control" rows="4" placeholder="Enter experience description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-location" class="form-label">Location</label>
-        <input type="text" id="experience-location" class="form-control" placeholder="Enter experience location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-price" class="form-label">Price per Person</label>
-        <input type="number" id="experience-price" class="form-control" placeholder="Enter price per person" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-duration" class="form-label">Duration (in hours)</label>
-        <input type="number" id="experience-duration" class="form-control" placeholder="Enter experience duration" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-image" class="form-label">Image</label>
-        <input type="file" id="experience-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-inclusions" class="form-label">Inclusions</label>
-        <textarea id="experience-inclusions" class="form-control" rows="4" placeholder="Enter experience inclusions"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-exclusions" class="form-label">Exclusions</label>
-        <textarea id="experience-exclusions" class="form-control" rows="4" placeholder="Enter experience exclusions"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="experience-requirements" class="form-label">Requirements</label>
-        <textarea id="experience-requirements" class="form-control" rows="4" placeholder="Enter experience requirements"></textarea>
-      </div>
-                `;
+          ${generateFormElement("Duration", "duration", "text", "Enter duration", true)}
+          ${generateFormElement("Includes", "includes", "text", "Enter includes (comma-separated)", true)}
+          ${generateTextareaElement("Highlights (comma-separated)", "highlights", "Enter highlights", true)}
+          ${generateTextareaElement("Itinerary (comma-separated)", "itinerary", "Enter itinerary", true)}
+          ${generateTextareaElement("What to bring (comma-separated)", "bring", "Enter what to bring", false)}
+          ${generateTextareaElement("What to wear (comma-separated)", "wear", "Enter what to wear", false)}
+          ${generateTextareaElement("Additional Info (comma-separated)", "info", "Enter additional info", false)}
+        `;
       } else if (category === "wildlife") {
         additionalPropertiesDiv.innerHTML += `
-      <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-location" class="form-label">Location</label>
-        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-duration" class="form-label">Duration (in days)</label>
-        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-activities" class="form-label">Activities</label>
-        <textarea id="product-activities" class="form-control" rows="4" placeholder="Enter product activities" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-transportation" class="form-label">Transportation</label>
-        <textarea id="product-transportation" class="form-control" rows="4" placeholder="Enter transportation details"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-guides" class="form-label">Guides</label>
-        <textarea id="product-guides" class="form-control" rows="4" placeholder="Enter guide details"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-equipment" class="form-label">Equipment</label>
-        <textarea id="product-equipment" class="form-control" rows="4" placeholder="Enter equipment details"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-inclusions" class="form-label">Inclusions</label>
-        <textarea id="product-inclusions" class="form-control" rows="4" placeholder="Enter product inclusions"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-exclusions" class="form-label">Exclusions</label>
-        <textarea id="product-exclusions" class="form-control" rows="4" placeholder="Enter product exclusions"></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-requirements" class="form-label">Requirements</label>
-        <textarea id="product-requirements" class="form-control" rows="4" placeholder="Enter product requirements"></textarea>
-      </div>
-                `;
+          ${generateFormElement("Duration", "duration", "text", "Enter duration", true)}
+          ${generateFormElement("Includes", "includes", "text", "Enter includes (comma-separated)", true)}
+          ${generateTextareaElement("Transportation", "transporatation", "Enter transportation details", false)}
+          ${generateTextareaElement("Additional Info (comma-separated)", "info", "Enter additional info", false)}
+        `;
       } else if (category === "beaches") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-location" class="form-label">Location</label>
-        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-duration" class="form-label">Duration (in hours)</label>
-        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-activities" class="form-label">Activities</label>
-        <textarea id="product-activities" class="form-control" rows="4" placeholder="Enter beach and coastal activities" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-water-sports" class="form-label">Water Sports</label>
-        <input type="text" id="product-water-sports" class="form-control" placeholder="Enter water sports available">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-sailing-trips" class="form-label">Sailing Trips</label>
-        <input type="text" id="product-sailing-trips" class="form-control" placeholder="Enter sailing trips offered">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-coastal-exploration" class="form-label">Coastal Exploration</label>
-        <input type="text" id="product-coastal-exploration" class="form-control" placeholder="Enter coastal exploration options">
-      </div>
-                `;
+        ${generateFormElement("Duration", "duration", "text", "Enter duration", true)}
+        ${generateFormElement("Includes", "includes", "text", "Enter includes (comma-separated)", true)}
+        `;
       } else if (category === "historical") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
+        ${generateFormElement("Duration", "duration", "text", "Enter duration", true)}
+        ${generateFormElement("Includes", "includes", "text", "Enter includes (comma-separated)", true)}
+        ${generateFormElement("Heritage Sites", "heritage_sites", "text", "Enter sites (comma-separated)", true)}
+        ${generateFormElement("Archaeological Sites", "archaeo_sites", "text", "Enter sites (comma-separated)", true)}
+        ${generateFormElement("Religious Sites", "religious_sites", "text", "Enter sites (comma-separated)", true)}
+        ${generateFormElement("Museums", "museums", "text", "Enter museums (comma-separated)", true)}
 
-      <div class="mb-3">
-        <label for="product-location" class="form-label">Location</label>
-        <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-duration" class="form-label">Duration (in hours)</label>
-        <input type="number" id="product-duration" class="form-control" placeholder="Enter product duration" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-heritage-sites" class="form-label">Heritage Sites</label>
-        <input type="text" id="product-heritage-sites" class="form-control" placeholder="Enter heritage sites included">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-temples" class="form-label">Ancient Temples</label>
-        <input type="text" id="product-temples" class="form-control" placeholder="Enter ancient temples visited">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-archaeological-sites" class="form-label">Archaeological Sites</label>
-        <input type="text" id="product-archaeological-sites" class="form-control" placeholder="Enter archaeological sites explored">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-cultural-performances" class="form-label">Cultural Performances</label>
-        <input type="text" id="product-cultural-performances" class="form-control" placeholder="Enter cultural performances included">
-      </div>
-                `;
+        `;
       } else if (category === "food") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-cuisine" class="form-label">Cuisine</label>
-        <input type="text" id="product-cuisine" class="form-control" placeholder="Enter product cuisine" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-dietary-restrictions" class="form-label">Dietary Restrictions</label>
-        <div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="vegetarian" value="Vegetarian">
-            <label class="form-check-label" for="vegetarian">Vegetarian</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="vegan" value="Vegan">
-            <label class="form-check-label" for="vegan">Vegan</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="gluten-free" value="Gluten-free">
-            <label class="form-check-label" for="gluten-free">Gluten-free</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-beverages" class="form-label">Beverages</label>
-        <input type="text" id="product-beverages" class="form-control" placeholder="Enter beverages served">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-availability" class="form-label">Availability</label>
-        <select id="product-availability" class="form-select" required>
-          <option value="">Select availability</option>
-          <option value="Daily">Daily</option>
-          <option value="Weekly">Weekly</option>
-          <option value="Monthly">Monthly</option>
-        </select>
-      </div>
-                `;
+        ${generateFormElement("Includes", "includes", "text", "Enter includes (comma-separated)", true)}
+        ${generateFormElement("Cuisine Type", "cousine", "text", "Enter cuisine type", true)}
+        ${generateCheckBoxes('Dietery Restrictions', "restrictions", false, [
+          { label: "Vegetarian", value: "vegetarian" },
+          { label: "Vegan", value: "vegan" },
+          { label: "Gluten-free", value: "gluten-free" },
+          { label: "Halal", value: "halal" },
+          { label: "Kosher", value: "kosher" },
+          { label: "Other", value: "other" }
+        ])}
+        ${generateFormElement("Meal Type", "meal_type", "text", "Enter meal type (ex: breakfast)", false)}
+        ${generateFormElement("Meal Time", "meal_time", "text", "Enter meal time (ex: 7:00 AM)", false)}
+        ${generateFormElement("Meal Style", "meal_style", "text", "Enter meal style (ex: buffet)"), false}
+        `;
       } else if (category === "shopping") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-material" class="form-label">Material</label>
-            <input type="text" id="product-material" class="form-control" placeholder="Enter product material" required>
+          <div class="row">
+            <div class="col-md-6">
+              ${generateFormElement("Material", "material", "text", "Enter product material")}
+            </div>
+            <div class="col-md-6">
+              ${generateFormElement("Size", "size", "text", "Enter product size (optional)", false)}
+            </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-size" class="form-label">Size</label>
-            <input type="text" id="product-size" class="form-control" placeholder="Enter product size (optional)">
+          <div class="row">
+            <div class="col-md-6">
+              ${generateFormElement("Color", "color", "text", "Enter product color (optional)", false)}
+            </div>
           </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-color" class="form-label">Color</label>
-            <input type="text" id="product-color" class="form-control" placeholder="Enter product color (optional)">
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-quantity" class="form-label">Quantity</label>
-            <input type="number" id="product-quantity" class="form-control" placeholder="Enter product quantity" required>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-weight" class="form-label">Weight (grams)</label>
-        <input type="number" id="product-weight" class="form-control" placeholder="Enter product weight (optional)">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-manufacturer" class="form-label">Manufacturer</label>
-        <input type="text" id="product-manufacturer" class="form-control" placeholder="Enter product manufacturer (optional)">
-      </div>
-
-      <div class="mb-3">
-        <label for="product-country" class="form-label">Country</label>
-        <select id="product-country" class="form-select" required>
-          <option value="">Select country</option>
-          <option value="usa">USA</option>
-          <option value="uk">UK</option>
-          <option value="france">France</option>
-          <option value="germany">Germany</option>
-          <!-- Add more countries as needed -->
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-tags" class="form-label">Tags</label>
-        <input type="text" id="product-tags" class="form-control" placeholder="Enter product tags (optional)">
-        <small class="form-text text-muted">Add comma-separated tags for better searchability.</small>
-      </div>
-                `;
+          ${generateFormElement("Weight (grams)", "weight", "number", "Enter product weight (optional)", false)}
+          ${generateFormElement("Manufacturer", "manufacturer", "text", "Enter product manufacturer (optional)", false)}
+          ${generateFormElement("Manufacturer Country", "country", "text", "Enter product manufacturer country (optional)", false)}
+        `;
       } else if (category === "wellness") {
         additionalPropertiesDiv.innerHTML += `
-                <div class="mb-3">
-        <label for="product-description" class="form-label">Description</label>
-        <textarea id="product-description" class="form-control" rows="4" placeholder="Enter product description" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-price" class="form-label">Price</label>
-        <input type="number" id="product-price" class="form-control" placeholder="Enter product price" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-image" class="form-label">Image</label>
-        <input type="file" id="product-image" class="form-control" required>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-location" class="form-label">Location</label>
-            <input type="text" id="product-location" class="form-control" placeholder="Enter product location" required>
+        <div class="row">
+          <div class="col-md-6">
+            ${generateFormElement("Therapist", "therapist", "text", "Enter product therapist")}
+          </div>
+          <div class="col-md-6">
+            ${generateFormElement("Duration", "duration", "text", "Enter product duration")}
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-duration" class="form-label">Duration</label>
-            <input type="text" id="product-duration" class="form-control" placeholder="Enter product duration" required>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-therapist" class="form-label">Therapist</label>
-            <input type="text" id="product-therapist" class="form-control" placeholder="Enter product therapist" required>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3">
-            <label for="product-booking-link" class="form-label">Booking Link</label>
-            <input type="url" id="product-booking-link" class="form-control" placeholder="Enter booking link" required>
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-amenities" class="form-label">Amenities</label>
-        <textarea id="product-amenities" class="form-control" rows="4" placeholder="Enter product amenities" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="product-tags" class="form-label">Tags</label>
-        <input type="text" id="product-tags" class="form-control" placeholder="Enter product tags (optional)">
-        <small class="form-text text-muted">Add comma-separated tags for better searchability.</small>
-      </div>
-                `;
+        ${generateFormElement("Amenities", "amenities", "textarea", "Enter product amenities")}
+  `;
       }
     }
+
   </script>
 
 </body>

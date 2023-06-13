@@ -1,5 +1,7 @@
 .vscode/
 /temp
 /node_modules
+/public/images/products
 
 .env
+pnpm-lock.yaml

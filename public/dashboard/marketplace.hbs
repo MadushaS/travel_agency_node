@@ -27,11 +27,11 @@
         max-height: 50vh;
     }
 
-    .w-500px{
+    .w-500px {
         width: 500px;
     }
 
-    .img-lower{
+    .img-lower {
         object-position: bottom;
     }
 
@@ -46,7 +46,7 @@
 
     .image-hover:hover {
         transform: translateY(-5px);
-    }    
+    }
 
     .category-image img {
         width: 100%;
@@ -123,7 +123,28 @@
     </nav>
 
     <main class="bg-body-secondary">
-        
+
+        <div class="bg-secondary">
+            <div class="container-fluid p-3">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-start">
+                            <span class="display-6 fw-normal">Marketplace</span>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                        {{#if login}}
+                            <a href="/marketplace/dashboard" class="btn btn-primary me-2">Dashboard</a>
+                            <a href="/logout" class="btn btn-primary">Logout</a>
+                        {{else}}
+
+                            <a href="/marketplace/dashboard" class="btn btn-primary me-2">Login</a>
+                            <a href="/marketplace/dashboard" class="btn btn-primary">Register</a>
+                        {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="product-search pt-5">
             <div class="container">
                 <div class="row">
@@ -131,13 +152,16 @@
                         <h2 class="display">Find what you need</h2>
                     </div>
                     <div class="col-12">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="button-addon1"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control form-control-lg" placeholder="Search for a product"
-                                aria-label="Search for a product" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary btn-lg" type="button"
-                                id="button-addon2">Search</button>
-                        </div>
+                        <form action="/marketplace/search" method="get">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="button-addon1"><i class="fas fa-search"></i></span>
+                                <input type="text" class="form-control form-control-lg" name="q"
+                                    placeholder="Search for a product" aria-label="Search for a product"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-primary btn-lg" type="submit"
+                                    id="button-addon2">Search</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -161,29 +185,18 @@
                 <div class="col-12  col-lg-9 overflow-hidden">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
+                            {{#each featuredShops}}
                             <div class="swiper-slide">
                                 <div class="card mb-4">
-                                    <img src="https://images.unsplash.com/photo-1546213290-e1b492ab3eee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-                                        class="card-img-top thumb h-max-50" alt="SHOP 1">
+                                    <img src="{{image}}" class="card-img-top thumb h-max-50" alt="{{name}}">
                                     <div class="card-body">
-                                        <h5 class="card-title">Souviner Shop</h5>
-                                        <p class="card-text">All you get is soued.</p>
+                                        <h5 class="card-title">{{name}}</h5>
+                                        <p class="card-text">{{description}}</p>
                                         <a href="#" class="btn btn-primary">Shop now</a>
                                     </div>
                                 </div>
-
                             </div>
-                            <div class="swiper-slide">
-                                <div class="card mb-4">
-                                    <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80"
-                                        class="card-img-top thumb h-max-50" alt="SHOP 1">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-white"><b>Souviner Shop</b></h5>
-                                        <p class="card-text text-white">All you get is soued.</p>
-                                        <a href="#" class="btn btn-primary">Shop Now</a>
-                                    </div>
-                                </div>
-                            </div>
+                            {{/each}}
                         </div>
                         <div class="swiper-pagination position-relative"></div>
                     </div>
@@ -193,42 +206,18 @@
 
         <div class="container-fluid pt-5 pb-3 bg-body shadow">
             <div class="row px-xl-5 text-center">
-                <div class="col-md-4">
-                    <div class="product-offer mb-30 h-max-50">
-                        <img class="img-fluid rounded-5 shadow thumb w-500px img-lower"
-                            src="https://cdn.shopify.com/s/files/1/0564/2262/9554/products/WhatsAppImage2022-11-22at20.08.15_1.jpg?v=1669182239"
-                            alt="">
-                        <div class="offer-text p-2">
-                            <h6 class="text-success-emphasis text-uppercase">Save 20%</h6>
-                            <h3 class="text-success-emphasis mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
+                {{#each discoutedProducts}}
                 <div class="col-md-4">
                     <div class="product-offer mb-30">
-                        <img class="img-fluid rounded-5 shadow thumb w-500px"
-                            src="https://images.unsplash.com/photo-1537519646099-335112f03225?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-                            alt="">
+                        <img class="img-fluid rounded-5 shadow thumb w-500px" src="{{image}}" alt="{{name}}">
                         <div class="offer-text p-2">
-                            <h6 class="text-success-emphasis text-uppercase">Save 35%</h6>
+                            <h6 class="text-success-emphasis text-uppercase">Save {{discount}}%</h6>
                             <h3 class="text-success-emphasis mb-3">Special Offer</h3>
                             <a href="" class="btn btn-primary">Shop Now</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="product-offer mb-30 h-max-50">
-                        <img class="img-fluid rounded-5 shadow thumb w-500px"
-                            src="https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=500&dpr=1"
-                            alt="">
-                        <div class="offer-text p-2">
-                            <h6 class="text-success-emphasis text-uppercase">Save 20%</h6>
-                            <h3 class="text-success-emphasis mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
         </div>
 
@@ -275,68 +264,106 @@
             <div class="container py-4">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Accommodation">
-                        </div>
-                        <h5 class="category-title">Accommodation</h5>
-                        <p>Hotels, resorts, guesthouses, homestays, and vacation rentals.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Tours and Activities">
-                        </div>
-                        <h5 class="category-title">Tours and Activities</h5>
-                        <p>Guided tours, city sightseeing, adventure activities (hiking, surfing, wildlife safaris), cultural experiences, boat trips, and water sports.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Transportation">
-                        </div>
-                        <h5 class="category-title">Transportation</h5>
-                        <p>Car rentals, airport transfers, private chauffeurs, and transportation services.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/4553365/pexels-photo-4553365.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Experiences">
-                        </div>
-                        <h5 class="category-title">Experiences</h5>
-                        <p>Cooking classes, wellness retreats, yoga and meditation retreats, traditional craft workshops, and local cultural experiences.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/4403902/pexels-photo-4403902.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wildlife and Nature">
-                        </div>
-                        <h5 class="category-title">Wildlife and Nature</h5>
-                        <p>National parks, wildlife sanctuaries, birdwatching tours, nature walks, and eco-tourism experiences.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=600" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Beaches and Coastal Activities">
-                        </div>
-                        <h5 class="category-title">Beaches and Coastal Activities</h5>
-                        <p>Beach resorts, water sports (snorkeling, diving, surfing), sailing trips, and coastal exploration.</p>
-                      </div> 
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.unsplash.com/photo-1613526949297-1aba25022d0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6003&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Food and Dining">
-                        </div>
-                        <h5 class="category-title">Food and Dining</h5>
-                        <p>Culinary tours, food tasting experiences, traditional Sri Lankan cuisine, street food walks, and cooking workshops.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.unsplash.com/photo-1580793241553-e9f1cce181af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Shopping and Souvenirs">
-                        </div>
-                        <h5 class="category-title">Shopping and Souvenirs</h5>
-                        <p>Local markets, handicraft shops, boutique stores, and opportunities to purchase traditional Sri Lankan handicrafts, spices, and souvenirs.</p>
-                      </div>
-                      <div class="col">
-                        <div class="image-hover">
-                          <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wellness and Spa">
-                        </div>
-                        <h5 class="category-title">Wellness and Spa</h5>
-                        <p>Ayurvedic retreats, wellness spas, yoga retreats, and rejuvenation therapies.</p>
-                      </div>
+                        <a href="/marketplace/search?category=accommodation" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/97083/pexels-photo-97083.jpeg?auto=compress&cs=tinysrgb&w=600&dpr=1"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Accommodation">
+                            </div>
+                            <h5 class="category-title">Accommodation</h5>
+                            <p>Hotels, resorts, guesthouses, homestays, and vacation rentals.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=tours" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/1371360/pexels-photo-1371360.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm"
+                                    alt="Tours and Activities">
+                            </div>
+                            <h5 class="category-title">Tours and Activities</h5>
+                            <p>Guided tours, city sightseeing, adventure activities (hiking, surfing, wildlife safaris),
+                                cultural experiences, boat trips, and water sports.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=transportation" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/136739/pexels-photo-136739.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Transportation">
+                            </div>
+                            <h5 class="category-title">Transportation</h5>
+                            <p>Car rentals, airport transfers, private chauffeurs, and transportation services.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=experiences" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/4553365/pexels-photo-4553365.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Experiences">
+                            </div>
+                            <h5 class="category-title">Experiences</h5>
+                            <p>Cooking classes, wellness retreats, yoga and meditation retreats, traditional craft
+                                workshops, and local cultural experiences.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=wildlife" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/4403902/pexels-photo-4403902.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wildlife and Nature">
+                            </div>
+                            <h5 class="category-title">Wildlife and Nature</h5>
+                            <p>National parks, wildlife sanctuaries, birdwatching tours, nature walks, and eco-tourism
+                                experiences.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=beaches" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.pexels.com/photos/1998439/pexels-photo-1998439.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm"
+                                    alt="Beaches and Coastal Activities">
+                            </div>
+                            <h5 class="category-title">Beaches and Coastal Activities</h5>
+                            <p>Beach resorts, water sports (snorkeling, diving, surfing), sailing trips, and coastal
+                                exploration.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=food" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.unsplash.com/photo-1613526949297-1aba25022d0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=6003&q=80"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Food and Dining">
+                            </div>
+                            <h5 class="category-title">Food and Dining</h5>
+                            <p>Culinary tours, food tasting experiences, traditional Sri Lankan cuisine, street food
+                                walks,
+                                and cooking workshops.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=shopping" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.unsplash.com/photo-1580793241553-e9f1cce181af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm"
+                                    alt="Shopping and Souvenirs">
+                            </div>
+                            <h5 class="category-title">Shopping and Souvenirs</h5>
+                            <p>Local markets, handicraft shops, boutique stores, and opportunities to purchase
+                                traditional
+                                Sri Lankan handicrafts, spices, and souvenirs.</p>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="/marketplace/search?category=wellness" class="text-decoration-none">
+                            <div class="image-hover">
+                                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                                    class="img img-fluid image-hover thumb rounded shadow-sm" alt="Wellness and Spa">
+                            </div>
+                            <h5 class="category-title">Wellness and Spa</h5>
+                            <p>Ayurvedic retreats, wellness spas, yoga retreats, and rejuvenation therapies.</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
