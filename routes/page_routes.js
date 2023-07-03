@@ -26,10 +26,6 @@ router.get('/hotels', (req, res) => {
 
 router.get('/hotels/book', hotelController.getHotelDetails);
 
-router.get('/reviews', (req, res) => {
-    res.sendFile('reviews.html', { root: './public' });
-});
-
 router.get('/map', (req, res) => {
     res.sendFile('map.html', { root: './public' });
 });
