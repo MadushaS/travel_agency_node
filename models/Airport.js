@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Define airport schema
 const airportSchema = new mongoose.Schema({
-    number: Number,
+    _id: mongoose.SchemaTypes.ObjectId,
     icao: String,
     name: String,
     latitude_deg: Number,
@@ -11,12 +11,8 @@ const airportSchema = new mongoose.Schema({
     continent: String,
     country: String,
     iso_region: String,
-    municipality: String,
-    scheduled_service: String,
+    city: String,
     iata: String,
-    home_link: String,
-    wikipedia_link: String,
-    keywords: String,
 });
 
 // Create airport model

@@ -3,6 +3,7 @@ const db = require('../db/db');
 
 // Define airport schema
 const tourPackage = new mongoose.Schema({
+    _id: mongoose.SchemaTypes.ObjectId,
     Name: String,
     Category: String,
     Image: String,

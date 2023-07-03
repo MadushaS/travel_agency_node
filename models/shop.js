@@ -2,6 +2,7 @@ const { Double } = require('mongodb');
 const mongoose = require('mongoose');
 
 const shopSchema = new mongoose.Schema({
+    _id: mongoose.SchemaTypes.ObjectId,
     name: {
         type: String,
         required: true
