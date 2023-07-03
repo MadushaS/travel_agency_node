@@ -3,9 +3,11 @@ const fs = require('fs');
 const config = require('../config');
 const Shop = require('../models/shop');
 const Item = require('../models/item');
+const User = require('../models/user');
 
 const marketplace = fs.readFileSync('./public/dashboard/marketplace.hbs', 'utf8');
 const search = fs.readFileSync('./public/dashboard/search.hbs', 'utf8');
+const product = fs.readFileSync('./public/dashboard/product.hbs', 'utf8');
 
 handlebars.registerHelper('includes', function (a = [], b) {
     return a.includes(b);
@@ -25,19 +27,20 @@ handlebars.registerHelper('gt', function (a, b) {
 
 const marketplace_template = handlebars.compile(marketplace);
 const search_template = handlebars.compile(search);
+const product_template = handlebars.compile(product);
 
 exports.getMarketplace = async (req, res) => {
     const login = req.oidc.isAuthenticated() ? true : false;
-        
-    const shops = await Shop.find({ featured: true }).limit(3).lean();
+
+    const featuredItems = await Item.find().sort({rating:-1}).limit(5).lean();
     const discountedItems = await Item.find({ discount: { $gt: 0 } }).limit(3).lean();
 
     res.send(marketplace_template(
         {
-            featuredShops: shops,
+            featuredItems,
             discoutedProducts: discountedItems,
             login,
-            user:req.oidc.user
+            user: req.oidc.user
         }
     ));
 }
@@ -103,4 +106,84 @@ exports.searchItem = async (req, res) => {
 
         }
     ));
+}
+
+exports.productInfo = async (req, res) => {
+    const {id} = req.params;
+    const login = req.oidc.isAuthenticated() ? true : false;
+
+    if (!id) {
+        res.redirect('/marketplace');
+        return;
+    }
+
+    try {
+        const productSelected = await Item.findById(id).lean();
+        if (!productSelected) {
+            res.redirect('/marketplace');
+            return;
+        }
+
+        res.send(product_template(
+            {
+                login,
+                ...productSelected,
+                _discounted: productSelected.price - (productSelected.price * (productSelected.discount || 0) / 100),
+            }
+        ));
+    } catch (error) {
+        console.error(id);
+    }
+
+}
+
+exports.addToCart = async (item) => {
+
+    if (!req.oidc.isAuthenticated()) {
+        console.log('User not authenticated');
+        throw new Error('User not authenticated');
+    }
+
+    const userId = req.oidc.user.sub;
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            console.log('User not found');
+            return;
+        }
+
+        // Add the item to the user's cart
+        user.cart.push(item);
+
+        // Save the updated user object
+        await user.save();
+
+        console.log('Item added to cart:', item);
+    } catch (error) {
+        console.error('Error adding item to cart:', error);
+    }
+}
+
+exports.getCartCount = async (req, res) => {
+    if (!req.oidc.isAuthenticated()) {
+        console.log('User not authenticated');
+        return;
+    }
+
+    const userId = req.oidc.user.sub;
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            console.log('User not found');
+            return;
+        }
+
+        res.json({ count: user.cart.length });
+    } catch (error) {
+        console.error('Error getting cart count:', error);
+    }
 }

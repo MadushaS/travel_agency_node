@@ -172,11 +172,11 @@
                 <div class="col-12 col-lg-3">
                     <div class="container">
                         <div class="row">
-                            <h2 class="display">Featured shops</h2>
+                            <h2 class="display">Featured Products</h2>
                             <div class="container">
                                 <p>
                                     Best of the best. <br>
-                                    Find the best shops in the island.
+                                    Find the best items availble to buy.
                                 </p>
                             </div>
                         </div>
@@ -185,14 +185,14 @@
                 <div class="col-12  col-lg-9 overflow-hidden">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            {{#each featuredShops}}
+                            {{#each featuredItems}}
                             <div class="swiper-slide">
                                 <div class="card mb-4">
                                     <img src="{{image}}" class="card-img-top thumb h-max-50" alt="{{name}}">
                                     <div class="card-body">
                                         <h5 class="card-title">{{name}}</h5>
                                         <p class="card-text">{{description}}</p>
-                                        <a href="#" class="btn btn-primary">Shop now</a>
+                                        <a href="marketplace/product/{{_id}}" class="btn btn-primary">Shop now</a>
                                     </div>
                                 </div>
                             </div>
@@ -213,7 +213,7 @@
                         <div class="offer-text p-2">
                             <h6 class="text-success-emphasis text-uppercase">Save {{discount}}%</h6>
                             <h3 class="text-success-emphasis mb-3">Special Offer</h3>
-                            <a href="" class="btn btn-primary">Shop Now</a>
+                            <a href="marketplace/product/{{_id}}" class="btn btn-primary">Shop Now</a>
                         </div>
                     </div>
                 </div>

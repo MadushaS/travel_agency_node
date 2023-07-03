@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{{name}} | Marketplace - Nayana Travel Agency</title>
+    <link rel="stylesheet" href="/styles/theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+    <!-- Fontawesome 6 icons -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+<script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
+<script>
+    Weglot.initialize({
+        api_key: 'wg_d4e27959767375d41da670c79339b8551'
+    });
+</script>
+<style>
+    .h-max-50 {
+        max-height: 50vh;
+    }
+
+    .category-section {
+        padding: 60px 0;
+    }
+
+    .image-hover {
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .image-hover:hover {
+        transform: translateY(-5px);
+    }
+
+    .category-image img {
+        width: 100%;
+        height: auto;
+    }
+
+    .category-title {
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Nayana Travel Agency</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/flights">Flights</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/hotels">Hotels</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/shuttles">Shuttles</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/map">Map</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/weather">Weather</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/messaging">Messaging</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/explore">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/marketplace">Marketplace</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/reviews">Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+        <div class="bg-secondary">
+            <div class="container-fluid p-3">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-start">
+                            <span class="display-6 fw-normal">Marketplace</span>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                        {{#if login}}
+                            <a href="/marketplace/dashboard" class="btn btn-primary me-2">Dashboard</a>
+                            <a href="/logout" class="btn btn-primary">Logout</a>
+                        {{else}}
+
+                            <a href="/marketplace/dashboard" class="btn btn-primary me-2">Login</a>
+                            <a href="/marketplace/dashboard" class="btn btn-primary">Register</a>
+                        {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <section class="py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                <div class="col-md-6"><img class="card-img-top mb-5 mb-md-0" src="{{image}}" alt="{{name}}"></div>
+                <div class="col-md-6">
+                    <div class="small mb-1">SKU: {{_id}}</div>
+                    <h1 class="display-5 fw-bolder">{{name}}</h1>
+                    <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">${{price}}.00</span>
+                        <span>${{_discounted}}</span>
+                    </div>
+                    <p class="lead">{{description}}</p>
+                    <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem">
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-light py-3 mt-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted mb-0">Nayana Travel Agency &copy; 2023</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted mb-0 text-right">Designed by Nayanajitha</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

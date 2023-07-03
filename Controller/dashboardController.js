@@ -1,25 +1,45 @@
 const handlebars = require('handlebars');
 const fs = require('fs');
+const mongoose = require('mongoose');
 const config = require('../config');
 const Shop = require('../models/shop');
 const Item = require('../models/item');
+const User = require('../models/user');
 const { type } = require('os');
 
 const dashboard = fs.readFileSync('./public/dashboard/dashboard.hbs', 'utf8');
+const profile = fs.readFileSync('./public/dashboard/profile.hbs', 'utf8');
 
 const dashboard_template = handlebars.compile(dashboard);
+const profile_template = handlebars.compile(profile);
 
 
 exports.getDashboard = async (req, res) => {
     const { user } = req.oidc;
     const login = req.oidc.isAuthenticated() ? true : false;
 
-    const shops = await Shop.find({ featured: true }).limit(3).lean();
-    const discountedItems = await Item.find({ user_id: user.sub }).lean();
+    const existingUser = await User.findOne({ auth0Id: user.sub.toString() });
+
+    console.log(user);
+
+    if (!existingUser) {
+        
+        await User.create({
+            _id: new mongoose.Types.ObjectId(),
+            auth0Id: user.sub.toString(),
+            name: user.name,
+            email: user.email,
+            cart: [],
+            settings: {},
+            // any other additional data you want to store
+        }).save();
+    }
+
+    const userItems = await Item.find({ user_id: user.sub }).lean();
 
     res.send(dashboard_template(
         {
-            products: discountedItems,
+            products: userItems,
             user
         }
     ));
@@ -76,8 +96,33 @@ exports.removeProduct = async (req, res) => {
 
 }
 
+exports.getProfile = async (req, res) => {
+    const login = req.oidc.isAuthenticated() ? true : false;
+    if (!login) {
+        res.status(401).send('Unauthorized');
+    }
+    
+    const { user } = req.oidc;
+
+    const userFromDB = await User.findOne({ auth0Id: user.sub.toString() });
+
+    if (!userFromDB) {
+        res.status(404).send('User not found');
+    }
+
+console.log(req.oidc.user);
+    res.send(profile_template({
+        login,
+        name: userFromDB.name || req.oidc.user.name,
+        email: userFromDB.email,
+        image: req.oidc.user.picture,
+    }));
+
+}
+
 function prepareItem(req, user) {
     const newItem = new Item({
+        _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         price: req.body.price,
         description: req.body.description,
@@ -90,8 +135,6 @@ function prepareItem(req, user) {
         rating: 0,
         reviews: []
     });
-
-    console.log(req.body);
 
     if (req.body.categories.includes('accommodation')) {
         let amenities = req.body.hotel_amenities.split(',') || null;
