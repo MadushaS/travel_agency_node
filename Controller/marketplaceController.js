@@ -124,17 +124,63 @@ exports.productInfo = async (req, res) => {
             return;
         }
 
+        const reviews= productSelected.reviews.map(review => {
+            return {
+                ...review,
+                rating: review.rating.toFixed(1),
+            }
+        }).slice(0, (this.length>4)?4:undefined);
+
         res.send(product_template(
             {
                 login,
                 ...productSelected,
                 _discounted: productSelected.price - (productSelected.price * (productSelected.discount || 0) / 100),
+                reviews,
             }
         ));
     } catch (error) {
         console.error(id);
     }
 
+}
+exports.reviewProduct = async (req, res) => {
+    const { name, review, rating, productId } = req.body;
+    const logged = req.oidc.isAuthenticated() ? true : false;
+
+    if (!logged) {
+        res.redirect('/marketplace');
+        return;
+    }
+    const userId = req.oidc.user.sub;
+
+    try {
+        const user = await User.findOne({ auth0Id: userId });
+        if (!user) {
+            res.redirect('/marketplace');
+            return;
+        }
+
+        const item = await Item.findById(productId);
+        if (!item) {
+            res.redirect('/marketplace');
+            return;
+        }
+
+        const newReview = {
+            username:name,
+            rating,
+            review,
+        }
+
+        item.reviews.push(newReview);
+        await item.save();
+
+        res.redirect(`/marketplace/product/${productId}`);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error adding review');
+    }
 }
 
 exports.addToCart = async (item) => {

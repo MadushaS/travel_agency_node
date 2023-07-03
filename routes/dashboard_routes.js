@@ -13,6 +13,7 @@ router.get('/marketplace/product/:id', marketplaceController.productInfo);
 
 router.get('/marketplace/dashboard', requiresAuth(), dashboardController.getDashboard );
 router.get('/marketplace/dashboard/profile', requiresAuth(), dashboardController.getProfile );
+router.post('/marketplace/review', requiresAuth(), marketplaceController.reviewProduct );
 
 router.get('/marketplace/add/product', requiresAuth(), (req, res) => {
   res.sendFile('add_product.html', { root: './public/dashboard' });
