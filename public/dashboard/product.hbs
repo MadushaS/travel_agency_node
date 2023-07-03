@@ -19,7 +19,7 @@
 <script type="text/javascript" src="https://cdn.weglot.com/weglot.min.js"></script>
 <script>
     Weglot.initialize({
-        api_key: 'wg_d4e27959767375d41da670c79339b8551'
+        api_key: 'wg_3d6c9c54db8f4b2524552a02359fad271'
     });
 </script>
 <style>
@@ -273,11 +273,12 @@
                     formStatus.classList.remove("d-none");
                     formStatus.classList.add("alert-success");
                     formStatus.innerText = "Review submitted successfully";
+                    window.location.reload();
                 } else {
                     throw new Error();
                 }
                 console.log(res);
-                window.location.reload();
+                
             }).catch((err) => {
                 formStatus.classList.remove("d-none");
                 formStatus.classList.add("alert-danger");
