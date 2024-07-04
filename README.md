@@ -7,7 +7,7 @@ This is a travel agency website. It is a website that allows users to book a tri
 * CSS
 * JavaScript
 * Bootstrap
-* jQuery
+* Auth0
 * Node.js
 * Express
 * MongoDB
